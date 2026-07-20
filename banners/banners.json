@@ -98,5 +98,41 @@
     "headline": "The best never <em>stop.</em>",
     "subcopy": "At your level, the challenges get harder and more satisfying to crack.",
     "cta": "Complete your profile"
+  },
+  {
+    "id": "builder-welcome-student",
+    "bucket": "builder",
+    "art": "founder",
+    "greeting": "Welcome",
+    "headline": "Start your edge <em>early.</em>",
+    "subcopy": "Hackathons build your portfolio and get you noticed by companies who recruit from here.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "builder-welcome-0-1yr",
+    "bucket": "builder",
+    "art": "founder",
+    "greeting": "Welcome",
+    "headline": "Build fast. Learn <em>faster.</em>",
+    "subcopy": "48 hours of building something real teaches more than weeks of tutorials.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "builder-welcome-0-3yr",
+    "bucket": "builder",
+    "art": "founder",
+    "greeting": "Welcome",
+    "headline": "Time to <em>prove it.</em>",
+    "subcopy": "You've got enough experience to be dangerous in a hackathon.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "builder-welcome-3-10yr",
+    "bucket": "builder",
+    "art": "founder",
+    "greeting": "Welcome",
+    "headline": "Solve what <em>no one has.</em>",
+    "subcopy": "At your level, the interesting problems are the ones nobody's solved yet.",
+    "cta": "Complete your profile"
   }
 ]
