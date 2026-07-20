@@ -98,15 +98,20 @@
   .eyebrow .bracket { color: rgba(19,37,93,0.45); }
 
   .greeting {
-    font-family: var(--body);
+    font-family: var(--mono);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 11.5px;
     line-height: 1;
-    color: var(--text-muted);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
     margin-top: 2px;
-    margin-bottom: -2px;
+    margin-bottom: 2px;
   }
-  .banner.theme-dark .greeting { color: rgba(255,255,255,0.5); }
+  .banner.theme-dark .greeting {
+    color: var(--lime);
+    text-shadow: 0 0 14px rgba(199,242,82,0.35);
+  }
 
   .headline {
     font-family: var(--display);
@@ -265,7 +270,7 @@
     <div class="contours">__CONTOURS__</div>
     <div class="content">
       <img class="logo" src="__LOGO_SRC__" alt="HackerEarth">
-      <div class="eyebrow"><span class="bracket">[</span>__EYEBROW__<span class="bracket">]</span></div>
+      __EYEBROW_BLOCK__
       __GREETING__
       <div class="headline">__HEADLINE__</div>
       __SUBCOPY__

@@ -74,13 +74,16 @@ function render(config) {
   const greetingHtml = config.greeting
     ? `<div class="greeting">${config.greeting}</div>`
     : '';
+  const eyebrowBlock = config.eyebrow
+    ? `<div class="eyebrow"><span class="bracket">[</span>${config.eyebrow.toUpperCase()}<span class="bracket">]</span></div>`
+    : '';
   const isDark = config.theme === 'dark';
   html = html
     .replace('__THEME_CLASS__', isDark ? 'theme-dark' : '')
     .replace('__LOGO_SRC__', isDark ? '../assets/logo/logo-light.svg' : '../assets/logo/logo-dark.svg')
     .replace('__CONTOURS__', CONTOUR_SVG)
+    .replace('__EYEBROW_BLOCK__', eyebrowBlock)
     .replace('__GREETING__', greetingHtml)
-    .replace('__EYEBROW__', config.eyebrow.toUpperCase())
     .replace('__HEADLINE__', config.headline)
     .replace('__SUBCOPY__', subcopyHtml)
     .replace('__CTA__', config.cta)

@@ -27,8 +27,7 @@
     "id": "careerist-welcome-student",
     "bucket": "careerist",
     "art": "founder",
-    "eyebrow": "Careerist · Student",
-    "greeting": "Welcome.",
+    "greeting": "Welcome",
     "headline": "Let's build your <em>first proof.</em>",
     "subcopy": "Turn your projects and skills into a resume recruiters actually notice.",
     "cta": "Build your resume"
@@ -37,8 +36,7 @@
     "id": "careerist-welcome-0-1yr",
     "bucket": "careerist",
     "art": "founder",
-    "eyebrow": "Careerist · 0–1 yr",
-    "greeting": "Welcome.",
+    "greeting": "Welcome",
     "headline": "Build your presence <em>early.</em>",
     "subcopy": "Turn your profile into a resume that gets you noticed sooner.",
     "cta": "Build your resume"
@@ -47,8 +45,7 @@
     "id": "careerist-welcome-0-3yr",
     "bucket": "careerist",
     "art": "founder",
-    "eyebrow": "Careerist · 0–3 yrs",
-    "greeting": "Welcome.",
+    "greeting": "Welcome",
     "headline": "Let the right people <em>find you.</em>",
     "subcopy": "Turn your experience into a resume built for visibility.",
     "cta": "Build your resume"
@@ -57,8 +54,7 @@
     "id": "careerist-welcome-3-10yr",
     "bucket": "careerist",
     "art": "founder",
-    "eyebrow": "Careerist · 3–10 yrs",
-    "greeting": "Welcome.",
+    "greeting": "Welcome",
     "headline": "Visibility beats <em>applying.</em>",
     "subcopy": "Turn your track record into a resume recruiters can't miss.",
     "cta": "Build your resume"
@@ -68,8 +64,7 @@
     "bucket": "grinder",
     "art": "founder",
     "theme": "dark",
-    "eyebrow": "Grinder · Student",
-    "greeting": "Welcome.",
+    "greeting": "Welcome",
     "headline": "Start sharpening <em>early.</em>",
     "subcopy": "The fundamentals you build now compound in ways you can't see yet.",
     "cta": "Complete your profile"
@@ -79,8 +74,7 @@
     "bucket": "grinder",
     "art": "founder",
     "theme": "dark",
-    "eyebrow": "Grinder · 0–1 yr",
-    "greeting": "Welcome.",
+    "greeting": "Welcome",
     "headline": "The fundamentals <em>compound.</em>",
     "subcopy": "Starting early is one of the best decisions you can make.",
     "cta": "Complete your profile"
@@ -90,8 +84,7 @@
     "bucket": "grinder",
     "art": "founder",
     "theme": "dark",
-    "eyebrow": "Grinder · 0–3 yrs",
-    "greeting": "Welcome.",
+    "greeting": "Welcome",
     "headline": "Deliberate practice <em>wins.</em>",
     "subcopy": "It's what separates good developers from great ones.",
     "cta": "Complete your profile"
@@ -101,8 +94,7 @@
     "bucket": "grinder",
     "art": "founder",
     "theme": "dark",
-    "eyebrow": "Grinder · 3–10 yrs",
-    "greeting": "Welcome.",
+    "greeting": "Welcome",
     "headline": "The best never <em>stop.</em>",
     "subcopy": "At your level, the challenges get harder and more satisfying to crack.",
     "cta": "Complete your profile"
