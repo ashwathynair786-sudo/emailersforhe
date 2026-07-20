@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face {
+    font-family: 'Bricolage Grotesque';
+    src: url('../assets/fonts/BricolageGrotesque-Variable.ttf') format('truetype-variations');
+    font-weight: 200 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Geist';
+    src: url('../assets/fonts/Geist-Variable.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Geist';
+    src: url('../assets/fonts/Geist-Italic-Variable.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: italic;
+  }
+
+  :root {
+    --bg: #FBF9F3;
+    --bg-card: #FFFFFF;
+    --text: #020109;
+    --text-muted: #545459;
+    --text-faint: #8A8A90;
+    --border: rgba(2,1,9,0.1);
+    --accent: #13255D;
+    --cta: #FF5722;
+    --lime: #C7F252;
+    --display: 'Bricolage Grotesque', sans-serif;
+    --body: 'Geist', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 600px;
+    height: 250px;
+    background: var(--bg);
+    font-family: var(--body);
+    overflow: hidden;
+  }
+
+  .banner {
+    position: relative;
+    width: 600px;
+    height: 250px;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  /* ---- subtle contour motif, brand background texture ---- */
+  .contours {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .contours svg { width: 100%; height: 100%; }
+  .contours .c { fill: none; stroke: rgba(19,37,93,0.16); stroke-width: 0.9; }
+  .contours .c.major { stroke: rgba(19,37,93,0.24); stroke-width: 1.1; }
+
+  /* ---- text column ---- */
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 250px;
+    width: 306px;
+    padding: 26px 0 24px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .logo { height: 14px; width: 75px; margin-bottom: 6px; display: block; object-fit: contain; object-position: left center; flex-shrink: 0; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+  }
+  .eyebrow .bracket { color: rgba(19,37,93,0.45); }
+
+  .headline {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 1.08;
+    letter-spacing: -0.7px;
+    color: var(--text);
+    max-width: 280px;
+  }
+  .headline em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--cta);
+  }
+
+  .subcopy {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--text-muted);
+    max-width: 270px;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    margin-top: 4px;
+    background: var(--cta);
+    color: #FFFFFF;
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 13px;
+    padding: 9px 16px;
+    border-radius: 8px;
+    letter-spacing: -0.1px;
+  }
+
+  /* ---- illustration column ---- */
+  .art {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 318px;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .art img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .art .fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, rgba(251,249,243,0) 16%);
+  }
+
+  /* ---- hand-built "grinder" scene (no source photo supplied) ---- */
+  .art-scene {
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+  }
+  .g-card {
+    position: absolute;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(2,1,9,0.05);
+  }
+  .g-chart { top: 20px; left: 128px; width: 152px; height: 96px; padding: 12px 14px; }
+  .g-chart-label { font-family: var(--mono); font-size: 8.5px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .g-bars { display: flex; align-items: flex-end; gap: 8px; height: 50px; }
+  .g-bar { flex: 1; border-radius: 3px 3px 0 0; background: rgba(19,37,93,0.22); position: relative; }
+  .g-bar:nth-child(2) { background: rgba(19,37,93,0.4); }
+  .g-bar:nth-child(3) { background: rgba(19,37,93,0.62); }
+  .g-bar:nth-child(4) { background: rgba(19,37,93,0.88); }
+  .g-bar .dot { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 3px rgba(199,242,82,0.28); }
+
+  .g-list { top: 128px; left: 92px; width: 176px; padding: 11px 14px; display: flex; flex-direction: column; gap: 8px; }
+  .g-row { display: flex; align-items: center; gap: 8px; }
+  .g-dot { width: 13px; height: 13px; border-radius: 50%; border: 1.5px solid rgba(2,1,9,0.18); flex-shrink: 0; position: relative; }
+  .g-dot.done { border-color: var(--lime); background: var(--lime); }
+  .g-dot.done::after { content: ''; position: absolute; top: 3px; left: 2.5px; width: 6px; height: 3.5px; border-left: 1.4px solid var(--text); border-bottom: 1.4px solid var(--text); transform: rotate(-45deg); }
+  .g-row-text { font-family: var(--body); font-size: 10.5px; font-weight: 500; color: var(--text); flex: 1; }
+  .g-tag { font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: 0.4px; padding: 2px 6px; border-radius: 100px; }
+  .g-tag.easy { background: #D1FAE5; color: #059669; }
+  .g-tag.med { background: #FEF3C7; color: #B45309; }
+  .g-tag.hard { background: #FEE2E2; color: #DC2626; }
+
+  .g-chip { top: 20px; right: 20px; width: 66px; height: 58px; padding: 10px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+  .g-chip-num { font-family: var(--display); font-weight: 500; font-size: 20px; letter-spacing: -0.5px; color: var(--text); }
+  .g-chip-unit { font-size: 11px; color: var(--text-faint); font-weight: 400; margin-left: 1px; }
+  .g-chip-label { font-family: var(--mono); font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-faint); }
+
+  .g-tile { position: absolute; bottom: 22px; left: 56px; width: 36px; height: 36px; background: var(--accent); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 12px; color: #fff; box-shadow: 0 8px 16px rgba(19,37,93,0.25); }
+
+  /* ---- founder / welcome photo treatment ---- */
+  .founder-scene { position: absolute; inset: 0; }
+  .founder-scene .photo-frame {
+    position: absolute;
+    top: 22px; right: 22px; bottom: 22px; left: 36px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 16px 32px rgba(2,1,9,0.1);
+  }
+  .founder-scene img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+  .founder-scene .scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(2,1,9,0) 55%, rgba(2,1,9,0.72) 100%);
+  }
+  .founder-scene .attr {
+    position: absolute; left: 18px; right: 18px; bottom: 14px;
+    color: #fff;
+  }
+  .founder-scene .attr .name { font-family: var(--body); font-weight: 600; font-size: 13px; letter-spacing: -0.1px; margin-bottom: 2px; }
+  .founder-scene .attr .role { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.72); }
+  .founder-scene .quote-mark {
+    position: absolute; top: 14px; left: 16px;
+    font-family: var(--display); font-size: 40px; color: rgba(255,255,255,0.55);
+    line-height: 1; font-weight: 500;
+  }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="contours">__CONTOURS__</div>
+    <div class="content">
+      <img class="logo" src="../assets/logo/logo-dark.svg" alt="HackerEarth">
+      <div class="eyebrow"><span class="bracket">[</span>__EYEBROW__<span class="bracket">]</span></div>
+      <div class="headline">__HEADLINE__</div>
+      __SUBCOPY__
+      <div class="cta">__CTA__ →</div>
+    </div>
+    <div class="art">
+      __ART__
+      <div class="fade"></div>
+    </div>
+  </div>
+</body>
+</html>
