@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HackerEarth Design System v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site-shared.css">
+<style>
+  /* Page-specific spec layout */
+  body { font-size: 15px; }
+  .spec-shell { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* Sticky side rail */
+  .spec-layout { display: grid; grid-template-columns: 220px 1fr; gap: 64px; padding: 64px 0 160px; }
+  .spec-rail { position: sticky; top: 0; height: fit-content; padding: 16px 0; }
+  .spec-rail-label { font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 18px; }
+  .spec-rail a { display: block; padding: 8px 0; font-size: 13px; color: var(--text-muted); text-decoration: none; border-left: 2px solid transparent; padding-left: 14px; margin-left: -14px; transition: all 0.15s; }
+  .spec-rail a:hover { color: var(--text); }
+  .spec-rail a.active { color: var(--text); border-left-color: var(--cta); font-weight: 500; }
+
+  /* Spec sections */
+  .spec-content > section { padding: 56px 0; border-top: 1px solid var(--border); scroll-margin-top: 24px; }
+  .spec-content > section:first-child { padding-top: 0; border-top: none; }
+  .spec-content h2 { font-size: clamp(36px, 4vw, 52px); margin-bottom: 16px; }
+  .spec-content h3 { font-size: 22px; margin-top: 40px; margin-bottom: 14px; }
+  .spec-content h4 { font-size: 16px; margin-top: 28px; margin-bottom: 8px; font-family: var(--body); font-weight: 500; letter-spacing: 0; }
+  .spec-content p { font-size: 15px; line-height: 1.6; color: var(--text-muted); margin-bottom: 16px; max-width: 720px; }
+  .spec-content p strong { color: var(--text); font-weight: 500; }
+  .spec-content .lede { font-size: 18px; line-height: 1.5; color: var(--text-muted); max-width: 720px; margin-bottom: 32px; }
+
+  /* Hero */
+  .spec-hero { padding: 80px 0 24px; }
+  .spec-hero h1 { font-size: clamp(48px, 7vw, 88px); margin-bottom: 20px; }
+  .spec-hero .lede { font-size: 20px; max-width: 680px; }
+  .spec-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 32px; font-family: var(--mono); font-size: 12px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; }
+  .spec-meta span strong { color: var(--text); font-weight: 500; }
+
+  /* Swatch grids */
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin: 20px 0; }
+  .swatch { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .swatch-chip { height: 88px; border-bottom: 1px solid var(--border); }
+  .swatch-info { padding: 14px 16px; }
+  .swatch-name { font-family: var(--body); font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+  .swatch-token { font-family: var(--mono); font-size: 11px; color: var(--text-faint); margin-bottom: 8px; }
+  .swatch-hex { font-family: var(--mono); font-size: 12px; color: var(--text); }
+  .swatch-role { font-size: 12px; color: var(--text-muted); margin-top: 6px; line-height: 1.45; }
+  .swatch.is-dark .swatch-chip { border-bottom-color: rgba(255,255,255,0.1); }
+
+  /* Pair-row for token + role */
+  .token-table { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 16px 0; }
+  .token-row { display: grid; grid-template-columns: 24px 1fr 1.2fr 1.6fr; gap: 16px; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .token-row:last-child { border-bottom: none; }
+  .token-row .dot { width: 18px; height: 18px; border-radius: 5px; border: 1px solid var(--border-strong); }
+  .token-row code { font-family: var(--mono); font-size: 12px; color: var(--text); }
+  .token-row .role { color: var(--text-muted); }
+  .token-row .hex { font-family: var(--mono); color: var(--text-faint); font-size: 12px; }
+  .token-row.dark-bg { background: var(--bg-dark); color: white; border-bottom-color: rgba(255,255,255,0.08); }
+  .token-row.dark-bg code, .token-row.dark-bg .hex { color: rgba(255,255,255,0.9); }
+  .token-row.dark-bg .role { color: rgba(255,255,255,0.65); }
+
+  /* Type specimen */
+  .type-specimen { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px 36px; margin: 16px 0; }
+  .type-meta { font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 8px; display: flex; gap: 24px; flex-wrap: wrap; }
+  .type-meta strong { color: var(--text); font-weight: 500; }
+  .type-sample { line-height: 1.05; letter-spacing: -1.5px; color: var(--text); }
+  .type-sample.body { line-height: 1.5; letter-spacing: 0; font-size: 16px; }
+  .type-sample.mono { font-family: var(--mono); letter-spacing: 1px; font-size: 12px; color: var(--accent); text-transform: uppercase; }
+
+  .type-scale { display: flex; flex-direction: column; gap: 18px; margin: 20px 0; }
+  .type-scale-row { display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: baseline; padding: 18px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+  .type-scale-meta { font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; }
+  .type-scale-meta strong { color: var(--text); font-weight: 500; display: block; }
+  .type-scale-sample { font-family: var(--display); font-weight: 500; color: var(--text); }
+
+  /* Component demos */
+  .demo { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 40px; margin: 16px 0; position: relative; }
+  .demo.dark { background: var(--bg-dark); color: white; }
+  .demo-label { position: absolute; top: 12px; right: 16px; font-family: var(--mono); font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; }
+  .demo.dark .demo-label { color: rgba(255,255,255,0.4); }
+
+  .demo-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .demo-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+  /* Stat demo */
+  .stat-demo { background: var(--bg-dark); padding: 32px; border-radius: 12px; }
+  .stat-demo .stat-number { font-family: var(--display); font-size: 56px; font-weight: 500; line-height: 1; letter-spacing: -2px; color: white; margin-bottom: 12px; }
+  .stat-demo .stat-number .stat-unit { color: rgba(255,255,255,0.45); font-weight: 400; margin-left: 4px; font-size: 0.55em; letter-spacing: 0; }
+  .stat-demo .stat-label { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+  /* Eyebrow demos */
+  .demo .section-eyebrow.on-dark { color: var(--eyebrow-on-dark); }
+
+  /* Spacing scale */
+  .scale-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 16px 0; }
+  .scale-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+  .scale-card .scale-bar { background: var(--accent); height: 4px; border-radius: 2px; margin-bottom: 12px; }
+  .scale-card .scale-name { font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .scale-card .scale-value { font-family: var(--mono); font-size: 13px; color: var(--text); }
+  .scale-card .scale-role { font-size: 12px; color: var(--text-muted); margin-top: 6px; line-height: 1.45; }
+
+  /* Radius scale */
+  .radius-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin: 16px 0; }
+  .radius-card { background: var(--bg-card); border: 1px solid var(--border); padding: 18px; text-align: center; aspect-ratio: 1.2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+  .radius-card.r4  { border-radius: 4px; }
+  .radius-card.r6  { border-radius: 6px; }
+  .radius-card.r8  { border-radius: 8px; }
+  .radius-card.r10 { border-radius: 10px; }
+  .radius-card.r12 { border-radius: 12px; }
+  .radius-card.r16 { border-radius: 16px; }
+  .radius-card.r20 { border-radius: 20px; }
+  .radius-card.r24 { border-radius: 24px; }
+  .radius-card.r100 { border-radius: 100px; }
+  .radius-name { font-family: var(--mono); font-size: 11px; color: var(--text); }
+  .radius-role { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+  /* Do / Don't */
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .rules-col { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; }
+  .rules-col h4 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .rules-col.do h4 { color: var(--state-success); }
+  .rules-col.dont h4 { color: var(--state-error); }
+  .rules-col ul { list-style: none; }
+  .rules-col li { padding: 10px 0; font-size: 14px; line-height: 1.5; display: flex; gap: 10px; border-bottom: 1px dashed var(--border); }
+  .rules-col li:last-child { border-bottom: none; }
+  .rules-col li::before { flex-shrink: 0; }
+  .rules-col.do li::before { content: '✓'; color: var(--state-success); font-weight: 700; }
+  .rules-col.dont li::before { content: '✕'; color: var(--state-error); font-weight: 700; }
+
+  /* Inline code in copy */
+  .spec-content code.inline { font-family: var(--mono); font-size: 12.5px; background: rgba(2,1,9,0.05); padding: 1px 6px; border-radius: 4px; color: var(--text); }
+
+  
+  /* ===== Updated eyebrow with compass ===== */
+  .ds-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; }
+  .ds-eyebrow.on-dark { color: var(--eyebrow-on-dark); }
+  .ds-eyebrow .compass { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; }
+  .ds-eyebrow .compass svg { width: 100%; height: 100%; }
+  .ds-eyebrow .compass .c-ring { fill: none; stroke: rgba(2,1,9,0.32); stroke-width: 0.7; }
+  .ds-eyebrow.on-dark .compass .c-ring { stroke: rgba(255,255,255,0.42); }
+  .ds-eyebrow .compass .c-tick { stroke: rgba(2,1,9,0.45); stroke-width: 0.9; }
+  .ds-eyebrow.on-dark .compass .c-tick { stroke: rgba(255,255,255,0.55); }
+  .ds-eyebrow .compass .c-n { stroke: var(--cta); stroke-width: 1.2; }
+  .ds-eyebrow.on-dark .compass .c-n { stroke: var(--lime); }
+  .ds-eyebrow .compass .c-dot { fill: var(--cta); }
+  .ds-eyebrow.on-dark .compass .c-dot { fill: var(--lime); }
+  .ds-eyebrow .bracket { color: rgba(2,1,9,0.4); }
+  .ds-eyebrow.on-dark .bracket { color: rgba(255,255,255,0.45); }
+
+  /* ===== Stat-tick (from globe-preview) ===== */
+  .stat-tick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .stat-tick { position: relative; padding: 18px 0 6px; }
+  .stat-tick::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.2); }
+  .stat-tick.on-cream::before { background: rgba(2,1,9,0.2); }
+  .stat-tick::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 0; border-bottom: 1px dashed rgba(255,255,255,0.12); }
+  .stat-tick.on-cream::after { border-bottom-color: rgba(2,1,9,0.12); }
+  .stat-tick .stat-marks { position: absolute; top: -3px; left: 0; right: 0; height: 7px; display: flex; justify-content: space-between; pointer-events: none; }
+  .stat-tick .stat-marks span { display: block; width: 1px; height: 7px; background: rgba(255,255,255,0.3); }
+  .stat-tick.on-cream .stat-marks span { background: rgba(2,1,9,0.3); }
+  .stat-tick .stat-marks span:first-child { background: var(--lime); }
+  .stat-tick.on-cream .stat-marks span:first-child { background: var(--cta); }
+  .stat-tick .stat-num { font-family: var(--display); font-size: 36px; font-weight: 500; line-height: 1; letter-spacing: -1px; color: white; margin-bottom: 8px; }
+  .stat-tick.on-cream .stat-num { color: var(--text); }
+  .stat-tick .stat-num .u { color: rgba(255,255,255,0.45); font-weight: 400; font-size: 0.55em; letter-spacing: 0; }
+  .stat-tick.on-cream .stat-num .u { color: var(--text-faint); }
+  .stat-tick .stat-label { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  .stat-tick.on-cream .stat-label { color: var(--text-muted); }
+  .stat-tick .stat-coord { font-family: var(--mono); font-size: 9px; color: rgba(255,255,255,0.35); letter-spacing: 0.8px; position: absolute; top: 4px; right: 0; }
+  .stat-tick.on-cream .stat-coord { color: var(--text-faint); }
+
+  /* ===== Contour demo box ===== */
+  .contour-demo { position: relative; aspect-ratio: 21/9; border-radius: 16px; overflow: hidden; }
+  .contour-demo.on-cream { background: var(--bg); border: 1px solid var(--border); }
+  .contour-demo.on-dark { background: var(--bg-dark); }
+  .contour-demo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .contour-demo .label { position: absolute; bottom: 14px; left: 18px; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; z-index: 2; }
+  .contour-demo.on-cream .label { color: var(--text-muted); }
+  .contour-demo.on-dark .label { color: rgba(255,255,255,0.6); }
+  .contour-demo .contour { fill: none; stroke-width: 0.9; }
+  .contour-demo.on-cream .contour { stroke: rgba(19,37,93,0.22); }
+  .contour-demo.on-cream .contour.major { stroke: rgba(19,37,93,0.36); }
+  .contour-demo.on-cream .contour.cta { stroke: rgba(255,87,34,0.45); }
+  .contour-demo.on-dark .contour { stroke: rgba(255,255,255,0.18); }
+  .contour-demo.on-dark .contour.major { stroke: rgba(255,255,255,0.28); }
+  .contour-demo.on-dark .contour.lime { stroke: color-mix(in srgb, var(--lime) 55%, transparent); }
+
+  .contour-tokens { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .contour-tokens .ctok { padding: 18px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+  .contour-tokens .ctok h4 { font-size: 13px; margin: 0 0 6px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); }
+  .contour-tokens .ctok ul { list-style: none; margin: 0; padding: 0; }
+  .contour-tokens .ctok li { font-family: var(--mono); font-size: 11.5px; padding: 6px 0; display: flex; gap: 10px; color: var(--text); }
+  .contour-tokens .ctok li .sw { width: 22px; height: 4px; border-radius: 2px; flex-shrink: 0; align-self: center; }
+
+  @media (max-width: 900px) {
+    .spec-layout { grid-template-columns: 1fr; gap: 32px; }
+    .spec-rail { position: static; }
+    .demo-grid-2, .rules { grid-template-columns: 1fr; }
+    .type-scale-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="spec-shell">
+  <div class="spec-hero">
+    <div class="eyebrow">Design System · v1</div>
+    <h1>HackerEarth visual system.</h1>
+    <p class="lede">The tokens, type, components, and rules behind every page, deck, and asset. One source. Use it to build anything on-brand without guessing.</p>
+    <div class="spec-meta">
+      <span><strong>7</strong> brand colors</span>
+      <span><strong>3</strong> typefaces</span>
+      <span><strong>3</strong> state colors</span>
+      <span><strong>Updated</strong> 2026</span>
+    </div>
+  </div>
+
+  <div class="spec-layout">
+
+    <aside class="spec-rail">
+      <div class="spec-rail-label">Contents</div>
+      <a href="#brand">Brand fundamentals</a>
+      <a href="#color">Color</a>
+      <a href="#type">Typography</a>
+      <a href="#components">Components</a>
+      <a href="#layout">Layout &amp; spacing</a>
+      <a href="#voice">Voice &amp; emphasis</a>
+      <a href="#contours">Contours</a>
+      <a href="#rules">Do / don't</a>
+    </aside>
+
+    <div class="spec-content">
+
+      <!-- =================================================== BRAND -->
+      <section id="brand">
+        <h2>Brand fundamentals.</h2>
+        <p class="lede">Three things define the HackerEarth visual system: a <strong>warm cream surface</strong>, a <strong>deep navy / orange accent pair</strong>, and an <strong>editorial display typeface</strong>. Everything else flows from those three decisions.</p>
+
+        <h3>The wordmark</h3>
+        <p>The HackerEarth wordmark is always lowercase, set in the brand's custom typeface, and rendered in brand black <code class="inline">#020109</code>. Use at <strong>22px tall</strong> in nav contexts; scale proportionally elsewhere. Minimum size: 18px height. Don't lock it up with other elements, don't add a tagline, don't recolor it.</p>
+        <div class="demo">
+          <span class="demo-label">Logo</span>
+          <img src="logos/hackerearth.svg" alt="HackerEarth" style="height: 32px;">
+        </div>
+      </section>
+
+      <!-- =================================================== COLOR -->
+      <section id="color">
+        <h2>Color.</h2>
+        <p class="lede">A 7-color brand palette plus 3 functional state colors. Two saturated accents (navy, orange) anchored by warm and cool neutrals, with a third accent (lime) reserved for highlights. Use restrained.</p>
+
+        <h3>Foundation — surfaces &amp; text</h3>
+        <p>The base layer of every page. <code class="inline">--bg</code> on a marketing page, <code class="inline">--bg-card</code> on raised surfaces, <code class="inline">--bg-dark</code> for alternating dark sections.</p>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-chip" style="background: #FBF9F3;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Cream</div>
+              <div class="swatch-token">--bg</div>
+              <div class="swatch-hex">#FBF9F3</div>
+              <div class="swatch-role">Page background. Warm off-white — the surface customers spend most time on.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-chip" style="background: #FFFFFF; border-bottom: 1px solid var(--border);"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">White</div>
+              <div class="swatch-token">--bg-card</div>
+              <div class="swatch-hex">#FFFFFF</div>
+              <div class="swatch-role">Raised surfaces — cards, modals, panels. Sits on top of cream.</div>
+            </div>
+          </div>
+          <div class="swatch is-dark">
+            <div class="swatch-chip" style="background: #020109;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Brand black</div>
+              <div class="swatch-token">--text · --bg-dark</div>
+              <div class="swatch-hex">#020109</div>
+              <div class="swatch-role">Body text on cream. Dark sections, footer, mega menu. Confirmed from the wordmark.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-chip" style="background: #545459;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Muted text</div>
+              <div class="swatch-token">--text-muted</div>
+              <div class="swatch-hex">#545459</div>
+              <div class="swatch-role">Secondary copy, descriptions, supporting text.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Brand accents — two saturated, one highlight</h3>
+        <p>Navy and orange are the workhorse accents. Lime is the highlight color — use it like a punctuation mark, not paragraph color.</p>
+        <div class="swatch-grid">
+          <div class="swatch is-dark">
+            <div class="swatch-chip" style="background: #13255D;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Deep navy</div>
+              <div class="swatch-token">--accent</div>
+              <div class="swatch-hex">#13255D</div>
+              <div class="swatch-role">Eyebrows on cream, links, the "For AI Labs" card, tinted backgrounds via color-mix.</div>
+            </div>
+          </div>
+          <div class="swatch is-dark">
+            <div class="swatch-chip" style="background: #FF5722;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Orange</div>
+              <div class="swatch-token">--cta</div>
+              <div class="swatch-hex">#FF5722</div>
+              <div class="swatch-role">Primary CTAs, italic emphasis in headlines, "See all" links, flagship product treatment.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-chip" style="background: #C7F252;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Lime</div>
+              <div class="swatch-token">--lime</div>
+              <div class="swatch-hex">#C7F252</div>
+              <div class="swatch-role">"New" badges, "Most used" tags, hero live-dot, accent borders. Use sparingly — 1–2 instances per page.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>On-dark adaptations</h3>
+        <p>Navy doesn't read on near-black surfaces. These tokens are the on-dark counterparts — calm, confident, never trendy.</p>
+        <div class="token-table">
+          <div class="token-row dark-bg"><span class="dot" style="background: #A5A5AD;"></span><code>--eyebrow-on-dark</code><span class="hex">#A5A5AD</span><span class="role">All-caps eyebrows above headlines in dark sections.</span></div>
+          <div class="token-row dark-bg"><span class="dot" style="background: #A5A5AD;"></span><code>--icon-on-dark</code><span class="hex">#A5A5AD</span><span class="role">Outline icons in dark capability grids, security cards, etc.</span></div>
+          <div class="token-row dark-bg"><span class="dot" style="background: #FFFFFF;"></span><code>--stat-color</code><span class="hex">#FFFFFF</span><span class="role">Big numbers on dark surfaces (e.g. "10M+ developers"). Pure white = maximum confidence.</span></div>
+          <div class="token-row dark-bg"><span class="dot" style="background: rgba(255,255,255,0.45); border-color: rgba(255,255,255,0.3);"></span><code>--stat-unit-color</code><span class="hex">rgba(255,255,255,0.45)</span><span class="role">The unit suffix after stats (hrs, %, ×, M, B). Smaller and dimmer than the number itself.</span></div>
+        </div>
+
+        <h3>Functional state colors</h3>
+        <p>These live in a separate tier from brand. They <strong>communicate state</strong> — error, warning, success — and must stay distinct enough from brand accents that users never confuse a CTA with an error or a badge with a "passed" check.</p>
+        <div class="swatch-grid">
+          <div class="swatch is-dark">
+            <div class="swatch-chip" style="background: #DC2626;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Error red</div>
+              <div class="swatch-token">--state-error</div>
+              <div class="swatch-hex">#DC2626 · bg #FEE2E2</div>
+              <div class="swatch-role">Failed checks, below bar, destructive actions. True red — distinct from brand orange.</div>
+            </div>
+          </div>
+          <div class="swatch is-dark">
+            <div class="swatch-chip" style="background: #F59E0B;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Warning amber</div>
+              <div class="swatch-token">--state-warning</div>
+              <div class="swatch-hex">#F59E0B · bg #FEF3C7</div>
+              <div class="swatch-role">Borderline, needs review, proctoring flags. Amber-side of yellow — distinct from lime.</div>
+            </div>
+          </div>
+          <div class="swatch is-dark">
+            <div class="swatch-chip" style="background: #059669;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Success emerald</div>
+              <div class="swatch-token">--state-success</div>
+              <div class="swatch-hex">#059669 · bg #D1FAE5</div>
+              <div class="swatch-role">Passed checks, above bar, "all systems normal" pill. Emerald — distinct from lime (which is decorative).</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================== TYPOGRAPHY -->
+      <section id="type">
+        <h2>Typography.</h2>
+        <p class="lede">Three typefaces, each with one job. Editorial display for headlines. Neutral grotesque for body. Monospace for technical labels and eyebrows.</p>
+
+        <h3>Display — Bricolage Grotesque</h3>
+        <p>The voice of the brand. Used for every headline, statistic, and section title. Always at weight 500 (medium). Variable optical-size axis dialed up for display sizes. <strong>Emphasis is rendered in the pop color at the same weight</strong> — never italic, never bold.</p>
+        <div class="type-specimen">
+          <div class="type-meta"><span><strong>Bricolage Grotesque</strong></span><span>500 regular · 400 italic</span><span>opsz axis</span></div>
+          <div class="type-sample" style="font-family: var(--display); font-weight: 500; font-size: 64px;">Skills evaluation, <em style="font-style: normal; font-weight: 500; color: var(--cta);">built like infrastructure.</em></div>
+        </div>
+
+        <h3>Body — Geist</h3>
+        <p>The reading layer. Geist (Vercel's grotesque) at 16px / 1.5 line-height for body, 22px / 1.4 for hero leads, 14px for UI. Weights used: 400 (regular), 500 (medium), 600 (semibold).</p>
+        <div class="type-specimen">
+          <div class="type-meta"><span><strong>Geist</strong></span><span>300 / 400 / 500 / 600 / 700</span></div>
+          <div class="type-sample body">OnScreen runs voice and code interviews 24 hours a day. Every candidate gets a real conversation. You get a ranked shortlist by morning. The interview agent your engineers actually trust — not just your recruiters.</div>
+        </div>
+
+        <h3>Mono — JetBrains Mono</h3>
+        <p>Used exclusively for labels: eyebrows, section eyebrows, integration chips, token captions. Always all-caps with 1.2px letter-spacing for eyebrows, regular case for inline code. Signals "we are a developer-credible product" without being precious about it.</p>
+        <div class="type-specimen">
+          <div class="type-meta"><span><strong>JetBrains Mono</strong></span><span>400 / 500</span></div>
+          <div class="type-sample mono">Trusted by engineering teams at · Inside OnScreen · Layer 02 · Data foundation · skills_graph · 5,000+ skills</div>
+        </div>
+
+        <h3>Type scale</h3>
+        <p>Every type role has one place in the scale. Don't invent new sizes mid-page.</p>
+        <div class="type-scale">
+          <div class="type-scale-row">
+            <div class="type-scale-meta"><strong>H1 — Hero</strong>clamp(40px, 6vw, 80px) / 0.98 / -2px</div>
+            <div class="type-scale-sample" style="font-size: 56px; line-height: 0.98; letter-spacing: -2px;">Every qualified candidate.</div>
+          </div>
+          <div class="type-scale-row">
+            <div class="type-scale-meta"><strong>H2 — Section</strong>clamp(32px, 4.5vw, 56px) / 1.02 / -1.5px</div>
+            <div class="type-scale-sample" style="font-size: 42px; line-height: 1.02; letter-spacing: -1.5px;">Phone screens don't <em style="font-style: normal; font-weight: 500; color: var(--cta);">scale.</em></div>
+          </div>
+          <div class="type-scale-row">
+            <div class="type-scale-meta"><strong>H3 — Feature</strong>26px / 1.1 / -0.6px</div>
+            <div class="type-scale-sample" style="font-size: 26px; line-height: 1.1; letter-spacing: -0.6px;">Run hundreds in parallel.</div>
+          </div>
+          <div class="type-scale-row">
+            <div class="type-scale-meta"><strong>H4 — Card</strong>20px / 1.15 / 0</div>
+            <div class="type-scale-sample" style="font-size: 20px; line-height: 1.15;">Voice conversation</div>
+          </div>
+          <div class="type-scale-row">
+            <div class="type-scale-meta"><strong>Lead</strong>22px / 1.4 / Geist 400</div>
+            <div class="type-scale-sample" style="font-family: var(--body); font-weight: 400; font-size: 22px; line-height: 1.4; color: var(--text-muted); letter-spacing: 0;">OnScreen runs voice and code interviews 24 hours a day.</div>
+          </div>
+          <div class="type-scale-row">
+            <div class="type-scale-meta"><strong>Body</strong>16px / 1.5 / Geist 400</div>
+            <div class="type-scale-sample" style="font-family: var(--body); font-weight: 400; font-size: 16px; line-height: 1.5; color: var(--text-muted); letter-spacing: 0;">Calibrated by senior engineers from leading product companies. Problems pulled from real engineering work.</div>
+          </div>
+          <div class="type-scale-row">
+            <div class="type-scale-meta"><strong>Eyebrow</strong>12px / mono / uppercase / 1.2px</div>
+            <div class="type-scale-sample mono" style="font-family: var(--mono); font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 500;">Inside OnScreen</div>
+          </div>
+          <div class="type-scale-row">
+            <div class="type-scale-meta"><strong>Small label</strong>11px / mono / uppercase / 1px</div>
+            <div class="type-scale-sample mono" style="font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px;">Trusted by engineering teams at</div>
+          </div>
+        </div>
+
+        <h3>Pop-color emphasis pattern</h3>
+        <p>Every headline that takes emphasis uses a one-phrase pop in orange — same weight as the rest of the headline, just recolored. Never italic. Never bold. The pop color does the work alone. One emphasis per headline, max. Wrap the phrase in <code class="inline">&lt;em&gt;</code> with <code class="inline">font-style: normal</code>.</p>
+        <div class="demo">
+          <span class="demo-label">Pattern</span>
+          <div style="font-family: var(--display); font-weight: 500; font-size: 36px; line-height: 1.05; letter-spacing: -1px;">A real interview, for <em style="font-style: normal; font-weight: 500; color: var(--cta);">every candidate</em>, in parallel.</div>
+        </div>
+      </section>
+
+      <!-- =================================================== COMPONENTS -->
+      <section id="components">
+        <h2>Components.</h2>
+        <p class="lede">The recurring patterns. Build with these — don't invent new ones for one-off uses.</p>
+
+        <h3>Buttons</h3>
+        <p>One primary, one secondary. Primary uses brand orange and only ever drives the page's main action ("Book a demo", "Talk to research"). Secondary is text + underline. There is no tertiary or ghost button.</p>
+        <div class="demo">
+          <span class="demo-label">Buttons</span>
+          <div class="demo-row">
+            <a href="#" class="btn-primary">Book a demo →</a>
+            <a href="#" class="btn-secondary">Watch a real interview</a>
+          </div>
+        </div>
+
+        <h3>Eyebrows</h3>
+        <p>Eyebrows pair a small <strong>compass-rose mark</strong>, a bracketed section number, and an all-caps tracked label. No pill background — the compass and the bracket carry the structure. On cream, the compass N-pointer is brand orange. On dark, lime takes over. Mono font, 11px, 1.5px letter-spacing.</p>
+        <div class="demo">
+          <span class="demo-label">Eyebrow — cream</span>
+          <span class="ds-eyebrow"><span class="compass" aria-hidden="true">
+              <svg viewBox="0 0 22 22">
+                <circle cx="11" cy="11" r="9" class="c-ring"/>
+                <circle cx="11" cy="11" r="5" class="c-ring"/>
+                <line x1="11" y1="2" x2="11" y2="6" class="c-n"/>
+                <line x1="20" y1="11" x2="16" y2="11" class="c-tick"/>
+                <line x1="11" y1="20" x2="11" y2="16" class="c-tick"/>
+                <line x1="2"  y1="11" x2="6"  y2="11" class="c-tick"/>
+                <circle cx="11" cy="11" r="1.2" class="c-dot"/>
+              </svg>
+            </span><span class="bracket">[ 01 ]</span><span>OnScreen · AI Interviewer</span></span>
+        </div>
+        <div class="demo">
+          <span class="demo-label">Section eyebrow — cream</span>
+          <span class="ds-eyebrow"><span class="compass" aria-hidden="true">
+              <svg viewBox="0 0 22 22">
+                <circle cx="11" cy="11" r="9" class="c-ring"/>
+                <circle cx="11" cy="11" r="5" class="c-ring"/>
+                <line x1="11" y1="2" x2="11" y2="6" class="c-n"/>
+                <line x1="20" y1="11" x2="16" y2="11" class="c-tick"/>
+                <line x1="11" y1="20" x2="11" y2="16" class="c-tick"/>
+                <line x1="2"  y1="11" x2="6"  y2="11" class="c-tick"/>
+                <circle cx="11" cy="11" r="1.2" class="c-dot"/>
+              </svg>
+            </span><span class="bracket">[ 03 ]</span><span>Inside OnScreen</span></span>
+        </div>
+        <div class="demo dark">
+          <span class="demo-label">Section eyebrow — dark</span>
+          <span class="ds-eyebrow on-dark"><span class="compass" aria-hidden="true">
+              <svg viewBox="0 0 22 22">
+                <circle cx="11" cy="11" r="9" class="c-ring"/>
+                <circle cx="11" cy="11" r="5" class="c-ring"/>
+                <line x1="11" y1="2" x2="11" y2="6" class="c-n"/>
+                <line x1="20" y1="11" x2="16" y2="11" class="c-tick"/>
+                <line x1="11" y1="20" x2="11" y2="16" class="c-tick"/>
+                <line x1="2"  y1="11" x2="6"  y2="11" class="c-tick"/>
+                <circle cx="11" cy="11" r="1.2" class="c-dot"/>
+              </svg>
+            </span><span class="bracket">[ 02 ]</span><span>The screening bottleneck</span></span>
+        </div>
+
+        <h3>Stat numbers</h3>
+        <p>Stats sit inside <strong>cartographic tickmark frames</strong> — top edge is a hairline tick scale with the first mark in lime (on dark) or orange (on cream); bottom edge is a dashed baseline. The unit (hrs, %, ×, M, B, K) drops to ~55% of the number's size and uses a muted gray. A small <code class="inline">01 / 02 / 03</code> coordinate index sits in the top-right of each stat. Number color is pure white on dark, brand black on cream.</p>
+        <div class="demo dark">
+          <span class="demo-label">Stat — dark</span>
+          <div class="stat-tick-grid">
+            <div class="stat-tick">
+              <div class="stat-marks"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="stat-coord">01</div>
+              <div class="stat-num">25K<span class="u">+</span></div>
+              <div class="stat-label">Curated questions</div>
+            </div>
+            <div class="stat-tick">
+              <div class="stat-marks"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="stat-coord">02</div>
+              <div class="stat-num">100M<span class="u">+</span></div>
+              <div class="stat-label">Assessments graded</div>
+            </div>
+            <div class="stat-tick">
+              <div class="stat-marks"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="stat-coord">03</div>
+              <div class="stat-num">4K<span class="u">+</span></div>
+              <div class="stat-label">Companies served</div>
+            </div>
+          </div>
+        </div>
+        <div class="demo">
+          <span class="demo-label">Stat — cream</span>
+          <div class="stat-tick-grid">
+            <div class="stat-tick on-cream">
+              <div class="stat-marks"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="stat-coord">01</div>
+              <div class="stat-num">23<span class="u">hrs</span></div>
+              <div class="stat-label">Recruiter time / week</div>
+            </div>
+            <div class="stat-tick on-cream">
+              <div class="stat-marks"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="stat-coord">02</div>
+              <div class="stat-num">42<span class="u">%</span></div>
+              <div class="stat-label">Internal mobility rate</div>
+            </div>
+            <div class="stat-tick on-cream">
+              <div class="stat-marks"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="stat-coord">03</div>
+              <div class="stat-num">1.2B<span class="u">+</span></div>
+              <div class="stat-label">Code submissions</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Cards &amp; surfaces</h3>
+        <p>Cards are white on cream pages with a hairline border and a generous radius (16px standard, 20–24px for hero cards). On dark sections, cards become subtly translucent — <code class="inline">rgba(255,255,255,0.03)</code> background with a low-opacity white border.</p>
+        <div class="demo-grid-2">
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px;">
+            <div class="section-eyebrow" style="margin-bottom: 14px;">Card on cream</div>
+            <h4 style="margin-bottom: 8px;">A real interview, for every candidate</h4>
+            <p style="margin-bottom: 0; font-size: 14px;">White card · 1px hairline border · radius 16px · padding 32px or 40px.</p>
+          </div>
+          <div class="demo dark" style="padding: 32px; border-radius: 16px;">
+            <div class="section-eyebrow on-dark" style="margin-bottom: 14px;">Card on dark</div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px;">
+              <h4 style="color: white; margin-bottom: 8px;">Translucent surface</h4>
+              <p style="color: rgba(255,255,255,0.65); margin-bottom: 0; font-size: 14px;">3% white background · 8% white border · radius 12px.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Lime — the highlight color</h3>
+        <p>Reserved for things that are <em>featured</em>, <em>new</em>, or <em>marked for attention</em>. Use 1–2 instances per page maximum. If you find yourself reaching for lime a third time, switch to white or navy.</p>
+        <div class="demo">
+          <span class="demo-label">Lime uses</span>
+          <div class="demo-row">
+            <span style="font-family: var(--mono); font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; background: var(--lime); color: var(--text); padding: 4px 10px; border-radius: 100px;">Most used</span>
+            <span style="font-family: var(--mono); font-size: 9px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; background: var(--lime); color: var(--text); padding: 2px 7px; border-radius: 100px;">New</span>
+            <span style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--accent); padding: 6px 14px; background: rgba(19,37,93,0.08); border-radius: 100px;"><span style="width: 6px; height: 6px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 0 3px color-mix(in srgb, var(--lime) 30%, transparent);"></span>Live status dot</span>
+          </div>
+        </div>
+
+        <h3>Case-study card</h3>
+        <p>Two-column card: tinted text panel + real-world image. Used for customer testimonials. Three tint variants drawn from the palette: navy (default), orange (<code class="inline">.tint-cta</code>), lime (<code class="inline">.tint-lime</code>). Rotate across pages for variety; never use more than one tint per page.</p>
+        <div class="demo" style="padding: 0; border: none; background: transparent;">
+          <div class="testimonial-card" style="grid-template-columns: 1fr 1fr;">
+            <div class="testimonial-text" style="padding: 40px 36px; min-height: 320px;">
+              <h2 class="case-headline" style="font-size: 28px;">See how a Fortune 500 cut screening time by <em>80%</em></h2>
+              <div>
+                <p class="quote-text" style="font-size: 15px;">"It's the first AI hiring tool that earned trust from the engineers, not just the recruiters."</p>
+                <div class="quote-attr">
+                  <span class="quote-name">Customer name</span>
+                  <span class="quote-sep">/</span>
+                  <span class="quote-title">Head of Talent, Company</span>
+                </div>
+                <a href="#" class="case-learn">Learn more</a>
+              </div>
+            </div>
+            <div class="testimonial-image" style="min-height: 320px;">
+              <div class="placeholder">
+                <span class="placeholder-label">Customer photo</span>
+                <span class="placeholder-detail">Real-world workplace context: hiring team, engineering, or industry-specific.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Customer logo grid</h3>
+        <p>Always two rows × six logos, never marquee. Logos sit at 26px tall, 70% opacity, grayscale. Mix real customer marks with subtly dimmed placeholder slots (42% opacity, <code class="inline">.is-placeholder</code>) for "logo TBD" positions.</p>
+        <div class="demo">
+          <span class="demo-label">Customer grid</span>
+          <div class="logo-strip" style="max-width: 100%;">
+            <img class="customer-logo" src="logos/google.svg" alt="Google">
+            <img class="customer-logo" src="logos/amazon.svg" alt="Amazon">
+            <img class="customer-logo" src="logos/microsoft.svg" alt="Microsoft">
+            <img class="customer-logo" src="logos/ibm.svg" alt="IBM">
+            <img class="customer-logo" src="logos/trimble.svg" alt="Trimble">
+            <img class="customer-logo" src="logos/globallogic.svg" alt="GlobalLogic">
+            <img class="customer-logo" src="logos/paypal.svg" alt="PayPal">
+            <img class="customer-logo" src="logos/barclays.svg" alt="Barclays">
+            <img class="customer-logo" src="logos/intuit.svg" alt="Intuit">
+            <img class="customer-logo is-placeholder" src="logos/wells-fargo.svg" alt="Wells Fargo">
+            <img class="customer-logo is-placeholder" src="logos/makemytrip.svg" alt="MakeMyTrip">
+            <img class="customer-logo is-placeholder" src="logos/vmware.svg" alt="VMware">
+          </div>
+        </div>
+
+        <h3>Layered diagrams</h3>
+        <p>Stack / architecture / hierarchy diagrams use <strong>one accent at varying opacity</strong> for depth — not multiple colors per layer. Navy at 4% / 8% / 14% / 22% reads as a real stack with weight at the bottom. Avoid rainbow infographic patterns.</p>
+        <div class="demo" style="padding: 24px;">
+          <span class="demo-label">Stack pattern</span>
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px;">
+            <div style="padding: 14px 18px; border-radius: 8px; margin-bottom: 8px; background: color-mix(in srgb, var(--accent) 4%, transparent); border: 0.5px solid color-mix(in srgb, var(--accent) 10%, transparent); font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px;">Layer 04 — top (lightest)</div>
+            <div style="padding: 14px 18px; border-radius: 8px; margin-bottom: 8px; background: color-mix(in srgb, var(--accent) 8%, transparent); font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px;">Layer 03</div>
+            <div style="padding: 14px 18px; border-radius: 8px; margin-bottom: 8px; background: color-mix(in srgb, var(--accent) 14%, transparent); font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px;">Layer 02</div>
+            <div style="padding: 14px 18px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 22%, transparent); font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px;">Layer 01 — foundation (heaviest)</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================== LAYOUT -->
+      <section id="layout">
+        <h2>Layout &amp; spacing.</h2>
+        <p class="lede">Consistent rhythm makes the system feel intentional. Don't invent new values mid-page.</p>
+
+        <h3>Section padding</h3>
+        <p><strong>100px top + bottom</strong> is the default for content sections. <strong>120px</strong> for bottom-CTA sections (extra breathing room around the ask). <strong>80px</strong> for tighter sections like social proof. Always vertical-only — horizontal padding lives on the inner <code class="inline">.container</code>.</p>
+
+        <h3>Spacing scale</h3>
+        <p>Inside cards and components, stick to multiples of 4. Common values:</p>
+        <div class="scale-grid">
+          <div class="scale-card"><div class="scale-bar" style="width: 4px;"></div><div class="scale-name">4px</div><div class="scale-value">--space-1</div><div class="scale-role">Tight gaps within compact UI</div></div>
+          <div class="scale-card"><div class="scale-bar" style="width: 8px;"></div><div class="scale-name">8px</div><div class="scale-value">--space-2</div><div class="scale-role">Gap between adjacent elements</div></div>
+          <div class="scale-card"><div class="scale-bar" style="width: 12px;"></div><div class="scale-name">12px</div><div class="scale-value">--space-3</div><div class="scale-role">Card internal vertical rhythm</div></div>
+          <div class="scale-card"><div class="scale-bar" style="width: 16px;"></div><div class="scale-name">16px</div><div class="scale-value">--space-4</div><div class="scale-role">Standard gap between cards</div></div>
+          <div class="scale-card"><div class="scale-bar" style="width: 24px;"></div><div class="scale-name">24px</div><div class="scale-value">--space-6</div><div class="scale-role">Group separator</div></div>
+          <div class="scale-card"><div class="scale-bar" style="width: 32px;"></div><div class="scale-name">32px</div><div class="scale-value">--space-8</div><div class="scale-role">Card internal padding</div></div>
+          <div class="scale-card"><div class="scale-bar" style="width: 48px;"></div><div class="scale-name">48px</div><div class="scale-value">--space-12</div><div class="scale-role">Section header → content</div></div>
+          <div class="scale-card"><div class="scale-bar" style="width: 64px;"></div><div class="scale-name">64px</div><div class="scale-value">--space-16</div><div class="scale-role">Major component padding</div></div>
+        </div>
+
+        <h3>Border radius</h3>
+        <p>Soft, generous radii throughout. No sharp corners except hairline dividers.</p>
+        <div class="radius-grid">
+          <div class="radius-card r4"><div class="radius-name">4px</div><div class="radius-role">Tight tags</div></div>
+          <div class="radius-card r6"><div class="radius-name">6px</div><div class="radius-role">Nav items, util buttons</div></div>
+          <div class="radius-card r8"><div class="radius-name">8px</div><div class="radius-role">Buttons, inputs</div></div>
+          <div class="radius-card r10"><div class="radius-name">10px</div><div class="radius-role">Primary CTAs</div></div>
+          <div class="radius-card r12"><div class="radius-name">12px</div><div class="radius-role">Capability cards</div></div>
+          <div class="radius-card r16"><div class="radius-name">16px</div><div class="radius-role">Section cards, mega menu</div></div>
+          <div class="radius-card r20"><div class="radius-name">20px</div><div class="radius-role">Hero cards, testimonial</div></div>
+          <div class="radius-card r24"><div class="radius-name">24px</div><div class="radius-role">Anti-cheat, case study</div></div>
+          <div class="radius-card r100"><div class="radius-name">100px</div><div class="radius-role">Pills, badges</div></div>
+        </div>
+
+        <h3>Surface alternation</h3>
+        <p>Cream and dark surfaces alternate to create visual rhythm. A good rule of thumb: 2–3 cream sections, then one dark section. Don't stack two dark sections back-to-back. Cards stay white regardless of which surface they sit on.</p>
+      </section>
+
+      <!-- =================================================== VOICE -->
+      <section id="voice">
+        <h2>Voice &amp; emphasis.</h2>
+        <p class="lede">The visual system has a voice. These are the patterns that make a page sound like HackerEarth even before someone reads the copy.</p>
+
+        <h3>Pop-color emphasis headlines</h3>
+        <p>Every major headline has <strong>one phrase recolored in pop orange</strong>. This is the most identifiable typographic signature. The colored phrase is the active idea; the surrounding text frames it. One emphasis per headline — never two, never italic, never bold.</p>
+        <ul style="list-style: none; max-width: 720px;">
+          <li style="font-family: var(--display); font-weight: 500; font-size: 26px; letter-spacing: -0.6px; line-height: 1.1; padding: 14px 0; border-bottom: 1px dashed var(--border);">Phone screens don't <em style="font-weight: 500; color: var(--cta);">scale.</em></li>
+          <li style="font-family: var(--display); font-weight: 500; font-size: 26px; letter-spacing: -0.6px; line-height: 1.1; padding: 14px 0; border-bottom: 1px dashed var(--border);">A real interview, for <em style="font-weight: 500; color: var(--cta);">every candidate.</em></li>
+          <li style="font-family: var(--display); font-weight: 500; font-size: 26px; letter-spacing: -0.6px; line-height: 1.1; padding: 14px 0; border-bottom: 1px dashed var(--border);">Skills evaluation, built like <em style="font-weight: 500; color: var(--cta);">infrastructure.</em></li>
+          <li style="font-family: var(--display); font-weight: 500; font-size: 26px; letter-spacing: -0.6px; line-height: 1.1; padding: 14px 0;">Your next hire is in the <em style="font-weight: 500; color: var(--cta);">candidates you're missing.</em></li>
+        </ul>
+
+        <h3>Eyebrow language</h3>
+        <p>Eyebrows are short. 2–5 words. They're tracking labels, not sentences. <strong>Style: short, definite, plain.</strong></p>
+        <p style="font-family: var(--mono); font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 1.2px;">Good: <span style="color: var(--text);">Inside OnScreen · The platform · By the numbers · For developers</span><br>
+        Bad: <span style="color: var(--state-error);">Discover how HackerEarth helps you... · Our incredible features for modern teams</span></p>
+
+        <h3>Stat construction</h3>
+        <p>Always pair a stat with a tight label. Number bold, unit dim, label one line. No more than 3 stats per row, no more than 4 per section. Stats with units larger than 3 characters (yrs, mo, %, ×, M, B, K) should be at ~55% opacity-and-size compared to the number itself.</p>
+      </section>
+
+      <!-- =================================================== CONTOURS -->
+      <section id="contours">
+        <h2>Contours.</h2>
+        <p class="lede">Cartographic contour rings are the brand's signature background motif. Use them <strong>optionally</strong> as section backdrops to reinforce the topographic identity — never on every section, never behind body copy that needs to be read at speed.</p>
+
+        <h3>When to use</h3>
+        <p>Reserve contours for: hero backdrops, footer backgrounds, deep-section dividers, and product-mock <em>surroundings</em> (never <em>over</em> the UI). Always pair with a radial mask that fades them toward the text. Never use as foreground content.</p>
+
+        <h3>On cream surfaces</h3>
+        <p>Navy strokes at varying opacity. Lime accent on the inner peak when a focal point is desired; otherwise omit the accent ring.</p>
+        <div class="contour-demo on-cream">
+          <svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path class="contour cta" d="M 380 280 Q 460 260 520 300 Q 540 360 480 390 Q 400 400 360 360 Q 340 310 380 280 Z"/>
+              <path class="contour" d="M 330 220 Q 450 190 570 240 Q 610 310 560 390 Q 460 440 360 420 Q 280 360 300 280 Z"/>
+              <path class="contour major" d="M 260 160 Q 440 120 620 180 Q 690 280 620 410 Q 460 480 290 450 Q 200 370 220 260 Z"/>
+              <path class="contour" d="M 180 100 Q 420 60 670 120 Q 770 250 690 410 Q 480 520 250 480 Q 110 380 140 220 Z"/>
+              <path class="contour" d="M 100 30 Q 390 0 730 70 Q 860 220 770 440 Q 510 580 200 520 Q 20 390 60 190 Z"/>
+              <path class="contour" opacity="0.55" d="M 0 -40 Q 360 -70 810 10 Q 970 190 870 480 Q 560 650 130 580 Q -80 430 -30 160 Z"/>
+            </g>
+          </svg>
+          <span class="label">On cream · navy strokes + orange accent peak</span>
+        </div>
+
+        <h3>On dark surfaces</h3>
+        <p>White strokes at varying opacity. Lime accent on the focal peak. Same shapes, inverted colors.</p>
+        <div class="contour-demo on-dark">
+          <svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path class="contour lime" d="M 380 280 Q 460 260 520 300 Q 540 360 480 390 Q 400 400 360 360 Q 340 310 380 280 Z"/>
+              <path class="contour" d="M 330 220 Q 450 190 570 240 Q 610 310 560 390 Q 460 440 360 420 Q 280 360 300 280 Z"/>
+              <path class="contour major" d="M 260 160 Q 440 120 620 180 Q 690 280 620 410 Q 460 480 290 450 Q 200 370 220 260 Z"/>
+              <path class="contour" d="M 180 100 Q 420 60 670 120 Q 770 250 690 410 Q 480 520 250 480 Q 110 380 140 220 Z"/>
+              <path class="contour" d="M 100 30 Q 390 0 730 70 Q 860 220 770 440 Q 510 580 200 520 Q 20 390 60 190 Z"/>
+              <path class="contour" opacity="0.55" d="M 0 -40 Q 360 -70 810 10 Q 970 190 870 480 Q 560 650 130 580 Q -80 430 -30 160 Z"/>
+            </g>
+          </svg>
+          <span class="label">On dark · white strokes + lime accent peak</span>
+        </div>
+
+        <h3>Token specification</h3>
+        <p>Six tokens drive every contour treatment. Use these values, don't invent intermediate opacities.</p>
+        <div class="contour-tokens">
+          <div class="ctok">
+            <h4>On cream — strokes</h4>
+            <ul>
+              <li><span class="sw" style="background: rgba(19,37,93,0.22);"></span>rgba(19,37,93, 0.22) · default ring</li>
+              <li><span class="sw" style="background: rgba(19,37,93,0.36);"></span>rgba(19,37,93, 0.36) · .major (every 3rd ring)</li>
+              <li><span class="sw" style="background: rgba(255,87,34,0.45);"></span>rgba(255,87,34, 0.45) · .cta (focal peak)</li>
+            </ul>
+          </div>
+          <div class="ctok">
+            <h4>On dark — strokes</h4>
+            <ul>
+              <li><span class="sw" style="background: rgba(255,255,255,0.18);"></span>rgba(255,255,255, 0.18) · default ring</li>
+              <li><span class="sw" style="background: rgba(255,255,255,0.28);"></span>rgba(255,255,255, 0.28) · .major (every 3rd ring)</li>
+              <li><span class="sw" style="background: rgba(199,242,82,0.55);"></span>color-mix(--lime 55%, transparent) · .lime (focal peak)</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Mask gradients</h3>
+        <p>Contours must fade so they never compete with content. Use a radial mask that fades the rings toward the headline area.</p>
+        <pre style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; font-family: var(--mono); font-size: 12px; color: var(--text); overflow-x: auto; line-height: 1.6; margin: 16px 0; max-width: 100%;">/* Rings clustered on the right; fade toward headline on left */
+.topo-bg-dark.fade-left::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 55% 75% at 18% 50%,
+    var(--bg-dark) 0%,
+    var(--bg-dark) 28%,
+    transparent 75%
+  );
+}
+
+/* Mirror to flip horizontally when needed */
+.topo-bg-dark.mirror svg {
+  transform: scaleX(-1);
+  transform-origin: center;
+}</pre>
+
+        <h3>Stroke widths</h3>
+        <p>Default stroke width is <code class="inline">0.9</code>. <code class="inline">.major</code> rings (every 3rd) bump to <code class="inline">1.1</code>. The focal-peak ring (<code class="inline">.cta</code> or <code class="inline">.lime</code>) uses <code class="inline">0.9</code> but at higher opacity — the color does the lifting, not the weight.</p>
+
+        <h3>Section opacity</h3>
+        <p>Cap the parent backdrop opacity at <code class="inline">0.5</code> on cream and <code class="inline">0.32–0.45</code> on dark. Higher than this and the rings start fighting the headline. Lower than 0.3 and they vanish. The system has a narrow legal range; stay inside it.</p>
+
+        <h3>Companion: soft mist (Platform pattern)</h3>
+        <p>For sections where contour rings would be too literal, use the soft-mist variant — heavily blurred elliptical blobs in dark gray, no strokes. Same earth motif, different render. Best for sections that already carry information (architecture diagrams, deep-dive panels).</p>
+      </section>
+
+      <!-- =================================================== DO / DON'T -->
+      <section id="rules">
+        <h2>Do / don't.</h2>
+        <p class="lede">The rules that keep the system from drifting.</p>
+
+        <div class="rules">
+          <div class="rules-col do">
+            <h4>Do</h4>
+            <ul>
+              <li>Use orange (<code class="inline">--cta</code>) only for primary CTAs and one emphasized phrase per headline.</li>
+              <li>Reserve lime for 1–2 highlight moments per page — badges, "new," featured borders.</li>
+              <li>Use the cream (<code class="inline">#FBF9F3</code>) — never a generic off-white. Warmth is part of the brand.</li>
+              <li>Use white stat numbers on dark; mute the unit with smaller size and gray.</li>
+              <li>Use a single accent at varying intensity for layered diagrams.</li>
+              <li>Set eyebrows in mono, uppercase, tracked.</li>
+              <li>Alternate cream and dark sections for rhythm.</li>
+              <li>Use real customer logos at 70% opacity, grayscale.</li>
+              <li>Recolor one phrase per headline in brand orange — same weight, never italic.</li>
+              <li>Mark placeholder content visibly (dashed borders, dimmed opacity).</li>
+            </ul>
+          </div>
+          <div class="rules-col dont">
+            <h4>Don't</h4>
+            <ul>
+              <li>Don't use orange as a category color or decorative fill — it's an action color.</li>
+              <li>Don't use lime more than twice per page. Don't use it as paragraph color.</li>
+              <li>Don't introduce hex codes that aren't in this spec. Use <code class="inline">color-mix</code> instead.</li>
+              <li>Don't use periwinkle (<code class="inline">#9FB1FE</code>) or lavender (<code class="inline">#C7B4F8</code>) — these are old palette and have been removed.</li>
+              <li>Don't bold or italicize for emphasis — orange recolor only.</li>
+              <li>Don't use rainbow categories on diagrams. One color, varying intensity.</li>
+              <li>Don't use emoji.</li>
+              <li>Don't use Inter, Roboto, system-ui as defaults — they're fallbacks only.</li>
+              <li>Don't use animated mesh gradients on the hero. (Toggleable opt-in only.)</li>
+              <li>Don't use a scrolling marquee for customer logos.</li>
+              <li>Don't stack two dark sections back-to-back.</li>
+              <li>Don't invent new spacing values mid-page — stick to the scale.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  // Highlight active rail link on scroll
+  const links = document.querySelectorAll('.spec-rail a');
+  const sections = [...links].map(l => document.querySelector(l.getAttribute('href')));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const idx = sections.indexOf(e.target);
+        if (idx >= 0) links[idx].classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => s && obs.observe(s));
+</script>
+
+</body>
+</html>
