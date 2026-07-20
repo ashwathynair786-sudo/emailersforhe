@@ -108,7 +108,8 @@
     margin-top: 2px;
     margin-bottom: 2px;
   }
-  .banner.theme-dark .greeting {
+  .banner.theme-dark .greeting,
+  .banner.theme-navy .greeting {
     color: var(--lime);
     text-shadow: 0 0 14px rgba(199,242,82,0.35);
   }
@@ -243,26 +244,42 @@
     line-height: 1; font-weight: 500;
   }
 
-  /* ---- dark theme ---- */
+  /* ---- dark themes (black + navy share on-dark text treatment) ---- */
   .banner.theme-dark { background: var(--bg-dark); }
-  .banner.theme-dark .contours { opacity: 0.4; }
-  .banner.theme-dark .contours .c { stroke: rgba(255,255,255,0.16); }
-  .banner.theme-dark .contours .c.major { stroke: rgba(255,255,255,0.26); }
-  .banner.theme-dark .eyebrow { color: var(--eyebrow-on-dark); }
-  .banner.theme-dark .eyebrow .bracket { color: rgba(255,255,255,0.32); }
-  .banner.theme-dark .headline { color: #FFFFFF; }
-  .banner.theme-dark .subcopy { color: rgba(255,255,255,0.62); }
+  .banner.theme-navy { background: var(--accent); }
+  .banner.theme-dark .contours,
+  .banner.theme-navy .contours { opacity: 0.4; }
+  .banner.theme-dark .contours .c,
+  .banner.theme-navy .contours .c { stroke: rgba(255,255,255,0.16); }
+  .banner.theme-dark .contours .c.major,
+  .banner.theme-navy .contours .c.major { stroke: rgba(255,255,255,0.26); }
+  .banner.theme-dark .eyebrow,
+  .banner.theme-navy .eyebrow { color: var(--eyebrow-on-dark); }
+  .banner.theme-dark .eyebrow .bracket,
+  .banner.theme-navy .eyebrow .bracket { color: rgba(255,255,255,0.32); }
+  .banner.theme-dark .headline,
+  .banner.theme-navy .headline { color: #FFFFFF; }
+  .banner.theme-dark .subcopy,
+  .banner.theme-navy .subcopy { color: rgba(255,255,255,0.62); }
   .banner.theme-dark .art .fade { background: linear-gradient(90deg, var(--bg-dark) 0%, rgba(2,1,9,0) 16%); }
-  .banner.theme-dark .founder-scene .photo-frame { box-shadow: 0 16px 32px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); }
-  .banner.theme-dark .g-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); box-shadow: none; }
-  .banner.theme-dark .g-chart-label, .banner.theme-dark .g-chip-label { color: rgba(255,255,255,0.45); }
-  .banner.theme-dark .g-chip-num, .banner.theme-dark .g-row-text { color: #FFFFFF; }
-  .banner.theme-dark .g-chip-unit { color: rgba(255,255,255,0.45); }
-  .banner.theme-dark .g-dot { border-color: rgba(255,255,255,0.25); }
-  .banner.theme-dark .g-bar { background: rgba(255,255,255,0.16); }
-  .banner.theme-dark .g-bar:nth-child(2) { background: rgba(255,255,255,0.32); }
-  .banner.theme-dark .g-bar:nth-child(3) { background: rgba(255,255,255,0.55); }
-  .banner.theme-dark .g-bar:nth-child(4) { background: rgba(255,255,255,0.85); }
+  .banner.theme-navy .art .fade { background: linear-gradient(90deg, var(--accent) 0%, rgba(19,37,93,0) 16%); }
+  .banner.theme-dark .founder-scene .photo-frame,
+  .banner.theme-navy .founder-scene .photo-frame { box-shadow: 0 16px 32px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); }
+  .banner.theme-dark .g-card,
+  .banner.theme-navy .g-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); box-shadow: none; }
+  .banner.theme-dark .g-chart-label, .banner.theme-dark .g-chip-label,
+  .banner.theme-navy .g-chart-label, .banner.theme-navy .g-chip-label { color: rgba(255,255,255,0.45); }
+  .banner.theme-dark .g-chip-num, .banner.theme-dark .g-row-text,
+  .banner.theme-navy .g-chip-num, .banner.theme-navy .g-row-text { color: #FFFFFF; }
+  .banner.theme-dark .g-chip-unit,
+  .banner.theme-navy .g-chip-unit { color: rgba(255,255,255,0.45); }
+  .banner.theme-dark .g-dot,
+  .banner.theme-navy .g-dot { border-color: rgba(255,255,255,0.25); }
+  .banner.theme-dark .g-bar,
+  .banner.theme-navy .g-bar { background: rgba(255,255,255,0.16); }
+  .banner.theme-dark .g-bar:nth-child(2), .banner.theme-navy .g-bar:nth-child(2) { background: rgba(255,255,255,0.32); }
+  .banner.theme-dark .g-bar:nth-child(3), .banner.theme-navy .g-bar:nth-child(3) { background: rgba(255,255,255,0.55); }
+  .banner.theme-dark .g-bar:nth-child(4), .banner.theme-navy .g-bar:nth-child(4) { background: rgba(255,255,255,0.85); }
 </style>
 </head>
 <body>

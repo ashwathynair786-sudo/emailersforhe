@@ -77,10 +77,11 @@ function render(config) {
   const eyebrowBlock = config.eyebrow
     ? `<div class="eyebrow"><span class="bracket">[</span>${config.eyebrow.toUpperCase()}<span class="bracket">]</span></div>`
     : '';
-  const isDark = config.theme === 'dark';
+  const isOnDark = config.theme === 'dark' || config.theme === 'navy';
+  const themeClass = config.theme === 'dark' ? 'theme-dark' : config.theme === 'navy' ? 'theme-navy' : '';
   html = html
-    .replace('__THEME_CLASS__', isDark ? 'theme-dark' : '')
-    .replace('__LOGO_SRC__', isDark ? '../assets/logo/logo-light.svg' : '../assets/logo/logo-dark.svg')
+    .replace('__THEME_CLASS__', themeClass)
+    .replace('__LOGO_SRC__', isOnDark ? '../assets/logo/logo-light.svg' : '../assets/logo/logo-dark.svg')
     .replace('__CONTOURS__', CONTOUR_SVG)
     .replace('__EYEBROW_BLOCK__', eyebrowBlock)
     .replace('__GREETING__', greetingHtml)

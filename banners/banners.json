@@ -20,7 +20,7 @@
     "bucket": "builder",
     "eyebrow": "Builder",
     "headline": "Developers who show up, <em>get noticed.</em>",
-    "subcopy": "A new hackathon just opened — build something worth showing off.",
+    "subcopy": "A new hackathon just opened \u2014 build something worth showing off.",
     "cta": "Join the hackathon"
   },
   {
@@ -106,7 +106,8 @@
     "greeting": "Welcome",
     "headline": "Start your edge <em>early.</em>",
     "subcopy": "Hackathons build your portfolio and get you noticed by companies who recruit from here.",
-    "cta": "Complete your profile"
+    "cta": "Complete your profile",
+    "theme": "navy"
   },
   {
     "id": "builder-welcome-0-1yr",
@@ -115,7 +116,8 @@
     "greeting": "Welcome",
     "headline": "Build fast. Learn <em>faster.</em>",
     "subcopy": "48 hours of building something real teaches more than weeks of tutorials.",
-    "cta": "Complete your profile"
+    "cta": "Complete your profile",
+    "theme": "navy"
   },
   {
     "id": "builder-welcome-0-3yr",
@@ -124,7 +126,8 @@
     "greeting": "Welcome",
     "headline": "Time to <em>prove it.</em>",
     "subcopy": "You've got enough experience to be dangerous in a hackathon.",
-    "cta": "Complete your profile"
+    "cta": "Complete your profile",
+    "theme": "navy"
   },
   {
     "id": "builder-welcome-3-10yr",
@@ -133,6 +136,7 @@
     "greeting": "Welcome",
     "headline": "Solve what <em>no one has.</em>",
     "subcopy": "At your level, the interesting problems are the ones nobody's solved yet.",
-    "cta": "Complete your profile"
+    "cta": "Complete your profile",
+    "theme": "navy"
   }
 ]
