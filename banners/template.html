@@ -79,10 +79,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
   }
 
-  .logo { height: 14px; width: 75px; margin-bottom: 6px; display: block; object-fit: contain; object-position: left center; flex-shrink: 0; }
+  .logo { height: 14px; width: 75px; margin-bottom: 4px; display: block; object-fit: contain; object-position: left center; flex-shrink: 0; }
 
   .eyebrow {
     display: inline-flex;
@@ -97,14 +97,25 @@
   }
   .eyebrow .bracket { color: rgba(19,37,93,0.45); }
 
+  .greeting {
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--text-muted);
+    margin-top: 2px;
+    margin-bottom: -2px;
+  }
+  .banner.theme-dark .greeting { color: rgba(255,255,255,0.5); }
+
   .headline {
     font-family: var(--display);
     font-weight: 500;
-    font-size: 27px;
-    line-height: 1.08;
-    letter-spacing: -0.7px;
+    font-size: 25px;
+    line-height: 1.1;
+    letter-spacing: -0.6px;
     color: var(--text);
-    max-width: 280px;
+    max-width: 288px;
   }
   .headline em {
     font-style: normal;
@@ -255,6 +266,7 @@
     <div class="content">
       <img class="logo" src="__LOGO_SRC__" alt="HackerEarth">
       <div class="eyebrow"><span class="bracket">[</span>__EYEBROW__<span class="bracket">]</span></div>
+      __GREETING__
       <div class="headline">__HEADLINE__</div>
       __SUBCOPY__
       <div class="cta">__CTA__ →</div>
