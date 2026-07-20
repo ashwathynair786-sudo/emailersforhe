@@ -25,6 +25,7 @@
   :root {
     --bg: #FBF9F3;
     --bg-card: #FFFFFF;
+    --bg-dark: #020109;
     --text: #020109;
     --text-muted: #545459;
     --text-faint: #8A8A90;
@@ -32,6 +33,7 @@
     --accent: #13255D;
     --cta: #FF5722;
     --lime: #C7F252;
+    --eyebrow-on-dark: #A5A5AD;
     --display: 'Bricolage Grotesque', sans-serif;
     --body: 'Geist', sans-serif;
     --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -224,13 +226,34 @@
     font-family: var(--display); font-size: 40px; color: rgba(255,255,255,0.55);
     line-height: 1; font-weight: 500;
   }
+
+  /* ---- dark theme ---- */
+  .banner.theme-dark { background: var(--bg-dark); }
+  .banner.theme-dark .contours { opacity: 0.4; }
+  .banner.theme-dark .contours .c { stroke: rgba(255,255,255,0.16); }
+  .banner.theme-dark .contours .c.major { stroke: rgba(255,255,255,0.26); }
+  .banner.theme-dark .eyebrow { color: var(--eyebrow-on-dark); }
+  .banner.theme-dark .eyebrow .bracket { color: rgba(255,255,255,0.32); }
+  .banner.theme-dark .headline { color: #FFFFFF; }
+  .banner.theme-dark .subcopy { color: rgba(255,255,255,0.62); }
+  .banner.theme-dark .art .fade { background: linear-gradient(90deg, var(--bg-dark) 0%, rgba(2,1,9,0) 16%); }
+  .banner.theme-dark .founder-scene .photo-frame { box-shadow: 0 16px 32px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); }
+  .banner.theme-dark .g-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); box-shadow: none; }
+  .banner.theme-dark .g-chart-label, .banner.theme-dark .g-chip-label { color: rgba(255,255,255,0.45); }
+  .banner.theme-dark .g-chip-num, .banner.theme-dark .g-row-text { color: #FFFFFF; }
+  .banner.theme-dark .g-chip-unit { color: rgba(255,255,255,0.45); }
+  .banner.theme-dark .g-dot { border-color: rgba(255,255,255,0.25); }
+  .banner.theme-dark .g-bar { background: rgba(255,255,255,0.16); }
+  .banner.theme-dark .g-bar:nth-child(2) { background: rgba(255,255,255,0.32); }
+  .banner.theme-dark .g-bar:nth-child(3) { background: rgba(255,255,255,0.55); }
+  .banner.theme-dark .g-bar:nth-child(4) { background: rgba(255,255,255,0.85); }
 </style>
 </head>
 <body>
-  <div class="banner">
+  <div class="banner __THEME_CLASS__">
     <div class="contours">__CONTOURS__</div>
     <div class="content">
-      <img class="logo" src="../assets/logo/logo-dark.svg" alt="HackerEarth">
+      <img class="logo" src="__LOGO_SRC__" alt="HackerEarth">
       <div class="eyebrow"><span class="bracket">[</span>__EYEBROW__<span class="bracket">]</span></div>
       <div class="headline">__HEADLINE__</div>
       __SUBCOPY__

@@ -58,5 +58,45 @@
     "headline": "Welcome. Visibility beats <em>applying.</em>",
     "subcopy": "Turn your track record into a resume recruiters can't miss.",
     "cta": "Build your resume"
+  },
+  {
+    "id": "grinder-welcome-student",
+    "bucket": "grinder",
+    "art": "founder",
+    "theme": "dark",
+    "eyebrow": "Grinder · Student",
+    "headline": "Welcome. Start sharpening <em>early.</em>",
+    "subcopy": "The fundamentals you build now compound in ways you can't see yet.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "grinder-welcome-0-1yr",
+    "bucket": "grinder",
+    "art": "founder",
+    "theme": "dark",
+    "eyebrow": "Grinder · 0–1 yr",
+    "headline": "Welcome. The fundamentals <em>compound.</em>",
+    "subcopy": "Starting early is one of the best decisions you can make. Trust the process.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "grinder-welcome-0-3yr",
+    "bucket": "grinder",
+    "art": "founder",
+    "theme": "dark",
+    "eyebrow": "Grinder · 0–3 yrs",
+    "headline": "Welcome. Deliberate practice <em>wins.</em>",
+    "subcopy": "It's what separates good developers from great ones.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "grinder-welcome-3-10yr",
+    "bucket": "grinder",
+    "art": "founder",
+    "theme": "dark",
+    "eyebrow": "Grinder · 3–10 yrs",
+    "headline": "Welcome. The best never <em>stop.</em>",
+    "subcopy": "At your level, the challenges get harder and a lot more satisfying to crack.",
+    "cta": "Complete your profile"
   }
 ]

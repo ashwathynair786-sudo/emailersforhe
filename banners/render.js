@@ -71,7 +71,10 @@ function render(config) {
   const subcopyHtml = config.subcopy
     ? `<div class="subcopy">${config.subcopy}</div>`
     : '';
+  const isDark = config.theme === 'dark';
   html = html
+    .replace('__THEME_CLASS__', isDark ? 'theme-dark' : '')
+    .replace('__LOGO_SRC__', isDark ? '../assets/logo/logo-light.svg' : '../assets/logo/logo-dark.svg')
     .replace('__CONTOURS__', CONTOUR_SVG)
     .replace('__EYEBROW__', config.eyebrow.toUpperCase())
     .replace('__HEADLINE__', config.headline)
