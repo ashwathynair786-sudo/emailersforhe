@@ -67,6 +67,7 @@ const MILESTONE_ART = {
   'first-problem': `
 <div class="m-scene">
   ${CONFETTI}
+  <div class="m-medal"><div class="num">1st</div><div class="ord">Solve</div></div>
   <div class="m-card">
     <div class="m-card-head">
       <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
@@ -84,6 +85,10 @@ const MILESTONE_ART = {
   'first-hiring-challenge': `
 <div class="m-scene">
   ${CONFETTI}
+  <div class="m-medal">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+    <div class="ord" style="margin-top:6px;">Applied</div>
+  </div>
   <div class="m-card">
     <div class="m-card-head">
       <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
@@ -101,6 +106,10 @@ const MILESTONE_ART = {
   'first-hackathon': `
 <div class="m-scene">
   ${CONFETTI}
+  <div class="m-medal">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 0V3s-1 1-4 1-5-2-8 0z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+    <div class="ord" style="margin-top:6px;">Entered</div>
+  </div>
   <div class="m-card m-card--code">
     <div class="m-card-head">
       <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
@@ -121,6 +130,10 @@ const MILESTONE_ART = {
   'first-mock-assessment': `
 <div class="m-scene">
   ${CONFETTI}
+  <div class="m-medal">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+    <div class="ord" style="margin-top:6px;">Attempted</div>
+  </div>
   <div class="m-card m-card--assess">
     <div class="m-card-head">
       <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
@@ -144,6 +157,7 @@ const MILESTONE_ART = {
   'first-vibecode': `
 <div class="m-scene">
   ${CONFETTI}
+  <div class="m-medal"><div class="num">1st</div><div class="ord">Vibecode</div></div>
   <div class="m-card m-card--vibe">
     <div class="m-card-head">
       <div class="m-vibe-lang"><span class="m-vibe-chip">&lt;/&gt;</span>JS</div>
@@ -169,6 +183,7 @@ const FEATURE_ART = {
   'hiring-challenges': `
 <div class="m-scene">
   ${CONFETTI}
+  <div class="m-medal"><div class="num">12</div><div class="ord">Live</div></div>
   <div class="m-card m-card--vibe">
     <div class="m-card-head">
       <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>Hiring</div>
@@ -194,6 +209,7 @@ const FEATURE_ART = {
   compete: `
 <div class="m-scene">
   ${CONFETTI}
+  <div class="m-medal"><div class="num" style="font-size:17px;">MAY</div><div class="ord">Vibecode</div></div>
   <div class="m-card m-card--assess">
     <div class="m-card-head">
       <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8m-4-4v4M4 4h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4z"/></svg></span>Compete</div>
