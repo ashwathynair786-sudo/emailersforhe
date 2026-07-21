@@ -310,5 +310,35 @@
     "headline": "A month-long challenge is <em>coming.</em>",
     "subcopy": "Plus contests live now — VibeCode's month-long challenge starts in May.",
     "cta": "Go to Compete"
+  },
+  {
+    "id": "secondary-feature-mock-assessment",
+    "bucket": "feature",
+    "art": "feature:mock-assessment",
+    "theme": "dark",
+    "eyebrow": "Mock Assessments",
+    "headline": "Practice the <em>real pressure.</em>",
+    "subcopy": "Same format, same pressure — know exactly where to focus.",
+    "cta": "Try a mock assessment"
+  },
+  {
+    "id": "secondary-feature-vibecode-practice",
+    "bucket": "feature",
+    "art": "feature:vibecode-promo",
+    "theme": "dark",
+    "eyebrow": "VibeCode Arena",
+    "headline": "Practice was step <em>one.</em>",
+    "subcopy": "Compete on how well you build with LLMs — starting May.",
+    "cta": "Go to VibeCode Arena"
+  },
+  {
+    "id": "secondary-feature-vibecode-compete",
+    "bucket": "feature",
+    "art": "feature:vibecode-promo",
+    "theme": "dark",
+    "eyebrow": "VibeCode Arena",
+    "headline": "The edge that <em>separates.</em>",
+    "subcopy": "Get comfortable before the challenge kicks off in May.",
+    "cta": "Go to VibeCode Arena"
   }
 ]

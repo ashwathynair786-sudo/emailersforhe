@@ -222,6 +222,56 @@ const FEATURE_ART = {
     </div>
   </div>
 </div>`,
+  'mock-assessment': `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" stroke="none"><path d="M8 5v14l11-7z"/></svg>
+    <div class="ord" style="margin-top:6px;">Try It</div>
+  </div>
+  <div class="m-card m-card--vibe">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>Assessment</div>
+      <div class="m-card-label">New</div>
+    </div>
+    <div class="m-card-body m-assess">
+      <div class="m-assess-row">
+        <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v14l11-7z"/></svg></div>
+        <div>
+          <div class="m-result-title">Ready when you are</div>
+          <div class="m-result-sub">Same format · same pressure</div>
+        </div>
+      </div>
+      <div class="m-tag-row">
+        <span class="m-skill-tag">Timed</span>
+        <span class="m-skill-tag">Real format</span>
+      </div>
+    </div>
+  </div>
+</div>`,
+  'vibecode-promo': `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal"><div class="num" style="font-size:17px;">MAY</div><div class="ord">Vibecode</div></div>
+  <div class="m-card m-card--vibe">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip">&lt;/&gt;</span>JS</div>
+      <div class="m-card-label">VibeCode Arena</div>
+    </div>
+    <div class="m-card-body m-code">
+      <div class="m-vibe-prompt">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="var(--lime)" stroke="none"><path d="M12 2l1.8 6.4L20 10l-6.2 1.6L12 18l-1.8-6.4L4 10l6.2-1.6z"/></svg>
+        "Build a REST API"
+      </div>
+      <div class="m-code-line" style="width:80%; background: rgba(255,255,255,0.5);"></div>
+      <div class="m-code-line" style="width:56%; background: var(--cta);"></div>
+      <div class="m-code-status">
+        <span class="m-code-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+        Ran successfully
+      </div>
+    </div>
+  </div>
+</div>`,
 };
 
 function artFor(config) {
