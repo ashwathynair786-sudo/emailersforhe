@@ -140,5 +140,25 @@
     "headline": "First problem: <em>solved.</em>",
     "subcopy": "Hiring challenges here look at problem-solving history. Yours just started.",
     "cta": "Browse hiring challenges"
+  },
+  {
+    "id": "grinder-milestone-first-problem",
+    "bucket": "grinder",
+    "art": "milestone:first-problem",
+    "theme": "dark",
+    "eyebrow": "Milestone · First Problem",
+    "headline": "The next one's <em>harder.</em>",
+    "subcopy": "That's kind of the point. Keep going.",
+    "cta": "Go to Practice"
+  },
+  {
+    "id": "builder-milestone-first-problem",
+    "bucket": "builder",
+    "art": "milestone:first-problem",
+    "theme": "dark",
+    "eyebrow": "Milestone · First Problem",
+    "headline": "Now make it <em>competitive.</em>",
+    "subcopy": "Solo was practice. Contests are where it counts.",
+    "cta": "Browse contests"
   }
 ]
