@@ -130,5 +130,15 @@
     "headline": "Solve what <em>no one has.</em>",
     "subcopy": "At your level, the interesting problems are the ones nobody's solved yet.",
     "theme": "dark"
+  },
+  {
+    "id": "careerist-milestone-first-problem",
+    "bucket": "careerist",
+    "art": "milestone:first-problem",
+    "theme": "dark",
+    "eyebrow": "Milestone · First Problem",
+    "headline": "You just solved your <em>first problem.</em>",
+    "subcopy": "Companies running hiring challenges here look at problem-solving history when shortlisting. You've just started building yours.",
+    "cta": "Browse hiring challenges"
   }
 ]

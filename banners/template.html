@@ -217,6 +217,63 @@
 
   .g-tile { position: absolute; bottom: 22px; left: 56px; width: 36px; height: 36px; background: var(--accent); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 12px; color: #fff; box-shadow: 0 8px 16px rgba(19,37,93,0.25); }
 
+  /* ---- hand-built "milestone" scene (celebratory vector illustration) ---- */
+  .m-scene { position: absolute; inset: 0; }
+
+  .m-card {
+    position: absolute;
+    top: 74px; left: 40px; width: 196px; height: 106px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 14px 28px rgba(2,1,9,0.08);
+    overflow: hidden;
+  }
+  .m-card-head { display: flex; align-items: center; justify-content: space-between; padding: 9px 12px; border-bottom: 1px solid var(--border); }
+  .m-dots { display: flex; gap: 5px; }
+  .m-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .m-dot.red { background: #DC2626; }
+  .m-dot.amber { background: #F59E0B; }
+  .m-dot.green { background: #059669; }
+  .m-card-label { font-family: var(--mono); font-size: 8px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.6px; }
+  .m-card-body { padding: 16px 14px; display: flex; align-items: center; gap: 12px; }
+  .m-check { width: 40px; height: 40px; border-radius: 50%; background: var(--lime); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 0 5px rgba(199,242,82,0.16); }
+  .m-check svg { width: 18px; height: 18px; }
+  .m-result-title { font-family: var(--body); font-weight: 600; font-size: 14.5px; color: var(--text); }
+  .m-result-sub { font-family: var(--mono); font-size: 8.5px; color: var(--text-faint); margin-top: 3px; letter-spacing: 0.3px; }
+
+  .m-medal {
+    position: absolute; top: 18px; right: 36px;
+    width: 68px; height: 68px; border-radius: 50%;
+    background: var(--cta);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 12px 26px rgba(255,87,34,0.35);
+    border: 3px solid rgba(255,255,255,0.9);
+  }
+  .m-medal .num { font-family: var(--display); font-weight: 500; font-size: 22px; color: #fff; line-height: 1; }
+  .m-medal .ord { font-family: var(--mono); font-size: 7.5px; color: rgba(255,255,255,0.88); text-transform: uppercase; letter-spacing: 1px; margin-top: 3px; }
+  .m-medal-tail { position: absolute; top: 78px; width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; }
+  .m-medal-tail.l { right: 78px; border-top: 16px solid var(--accent); transform: rotate(14deg); }
+  .m-medal-tail.r { right: 44px; border-top: 16px solid var(--accent); transform: rotate(-14deg); }
+
+  .m-confetti span { position: absolute; display: block; }
+  .m-confetti .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .m-confetti .bar { width: 4px; height: 12px; border-radius: 1px; }
+
+  /* on-dark tuning for the milestone scene */
+  .banner.theme-dark .m-card,
+  .banner.theme-navy .m-card { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); box-shadow: none; }
+  .banner.theme-dark .m-card-head,
+  .banner.theme-navy .m-card-head { border-bottom-color: rgba(255,255,255,0.1); }
+  .banner.theme-dark .m-result-title,
+  .banner.theme-navy .m-result-title { color: #FFFFFF; }
+  .banner.theme-dark .m-result-sub,
+  .banner.theme-navy .m-result-sub,
+  .banner.theme-dark .m-card-label,
+  .banner.theme-navy .m-card-label { color: rgba(255,255,255,0.45); }
+  .banner.theme-dark .m-medal,
+  .banner.theme-navy .m-medal { border-color: rgba(2,1,9,0.35); }
+
   /* ---- founder / welcome photo treatment ---- */
   .founder-scene { position: absolute; inset: 0; }
   .founder-scene .photo-frame {

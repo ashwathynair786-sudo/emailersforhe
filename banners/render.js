@@ -51,8 +51,47 @@ const FOUNDER_ART = `
   </div>
 </div>`;
 
+const CONFETTI = `
+<div class="m-confetti">
+  <span class="bar" style="top:30px; left:184px; background:var(--lime); transform: rotate(18deg);"></span>
+  <span class="dot" style="top:54px; left:238px; background:var(--cta);"></span>
+  <span class="dot" style="top:16px; left:132px; background:var(--accent); opacity:0.5;"></span>
+  <span class="bar" style="top:198px; left:66px; background:var(--cta); transform: rotate(-16deg);"></span>
+  <span class="dot" style="top:212px; left:150px; background:var(--lime);"></span>
+  <span class="dot" style="top:186px; left:276px; background:var(--accent); opacity:0.5;"></span>
+  <span class="dot" style="top:104px; left:14px; background:var(--cta); opacity:0.6;"></span>
+  <span class="bar" style="top:148px; left:296px; background:var(--lime); transform: rotate(28deg);"></span>
+</div>`;
+
+const MILESTONE_ART = {
+  'first-problem': `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal"><div class="num">1st</div><div class="ord">Solve</div></div>
+  <div class="m-card">
+    <div class="m-card-head">
+      <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
+      <div class="m-card-label">Problem #1</div>
+    </div>
+    <div class="m-card-body">
+      <div class="m-check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#020109" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div>
+        <div class="m-result-title">Accepted</div>
+        <div class="m-result-sub">Runtime beats 84%</div>
+      </div>
+    </div>
+  </div>
+</div>`,
+};
+
 function artFor(config) {
   if (config.art === 'founder') return FOUNDER_ART;
+  if (config.art && config.art.startsWith('milestone:')) {
+    const key = config.art.split(':')[1];
+    const art = MILESTONE_ART[key];
+    if (!art) throw new Error(`Unknown milestone art: ${key}`);
+    return art;
+  }
   const bucket = config.bucket;
   if (bucket === 'careerist') {
     return `<img src="../assets/illustrations/careerist-hero.png" style="object-position: 55% 28%;">`;
