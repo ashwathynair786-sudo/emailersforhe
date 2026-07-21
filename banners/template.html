@@ -100,17 +100,16 @@
   }
 
   .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: block;
     font-family: var(--mono);
     font-size: 10.5px;
     font-weight: 500;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1.4px;
+    max-width: 260px;
   }
-  .eyebrow .bracket { color: rgba(19,37,93,0.45); }
+  .eyebrow .bracket { color: rgba(19,37,93,0.45); padding: 0 5px; }
 
   .greeting {
     font-family: var(--display);

@@ -92,7 +92,7 @@ const MILESTONE_ART = {
   <div class="m-card">
     <div class="m-card-head">
       <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
-      <div class="m-card-label">Application #1</div>
+      <div class="m-card-label">Hiring Challenge #1</div>
     </div>
     <div class="m-card-body">
       <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>

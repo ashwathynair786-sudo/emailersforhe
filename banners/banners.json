@@ -136,7 +136,7 @@
     "bucket": "careerist",
     "art": "milestone:first-problem",
     "theme": "dark",
-    "eyebrow": "Milestone · First Problem",
+    "eyebrow": "First Problem",
     "headline": "First problem: <em>solved.</em>",
     "subcopy": "Hiring challenges here look at problem-solving history. Yours just started.",
     "cta": "Browse hiring challenges"
@@ -146,7 +146,7 @@
     "bucket": "grinder",
     "art": "milestone:first-problem",
     "theme": "dark",
-    "eyebrow": "Milestone · First Problem",
+    "eyebrow": "First Problem",
     "headline": "The next one's <em>harder.</em>",
     "subcopy": "That's kind of the point. Keep going.",
     "cta": "Go to Practice"
@@ -156,7 +156,7 @@
     "bucket": "builder",
     "art": "milestone:first-problem",
     "theme": "dark",
-    "eyebrow": "Milestone · First Problem",
+    "eyebrow": "First Problem",
     "headline": "Now make it <em>competitive.</em>",
     "subcopy": "Solo was practice. Contests are where it counts.",
     "cta": "Browse contests"
@@ -166,7 +166,7 @@
     "bucket": "careerist",
     "art": "milestone:first-hiring-challenge",
     "theme": "dark",
-    "eyebrow": "Milestone · First Application",
+    "eyebrow": "First Hiring Challenge",
     "headline": "You're in. <em>Now stand out.</em>",
     "subcopy": "Companies check your full profile, not just your submission.",
     "cta": "Build your resume"
@@ -176,7 +176,7 @@
     "bucket": "grinder",
     "art": "milestone:first-hiring-challenge",
     "theme": "dark",
-    "eyebrow": "Milestone · First Application",
+    "eyebrow": "First Hiring Challenge",
     "headline": "Sharpen up <em>before it closes.</em>",
     "subcopy": "Focus your practice on what you applied for.",
     "cta": "Go to Practice"
@@ -186,7 +186,7 @@
     "bucket": "builder",
     "art": "milestone:first-hiring-challenge",
     "theme": "dark",
-    "eyebrow": "Milestone · First Application",
+    "eyebrow": "First Hiring Challenge",
     "headline": "More challenges, <em>more chances.</em>",
     "subcopy": "Some roles never make it to a job board.",
     "cta": "Browse hiring challenges"
