@@ -400,5 +400,35 @@
     "headline": "People are clicking <em>through.</em>",
     "subcopy": "Show your projects and open-source work when they land.",
     "cta": "Complete your profile"
+  },
+  {
+    "id": "nudge1-careerist",
+    "bucket": "careerist",
+    "art": "nudge:get-started",
+    "theme": "dark",
+    "eyebrow": "Day 3 · Get Started",
+    "headline": "Not sure where to <em>start?</em>",
+    "subcopy": "Hiring challenges are built for developers with your background.",
+    "cta": "Browse hiring challenges"
+  },
+  {
+    "id": "nudge1-grinder",
+    "bucket": "grinder",
+    "art": "nudge:get-started",
+    "theme": "dark",
+    "eyebrow": "Day 3 · Get Started",
+    "headline": "Not sure where to <em>start?</em>",
+    "subcopy": "Practice is the best place — every stack, every level.",
+    "cta": "Go to Practice"
+  },
+  {
+    "id": "nudge1-builder",
+    "bucket": "builder",
+    "art": "nudge:get-started",
+    "theme": "dark",
+    "eyebrow": "Day 3 · Get Started",
+    "headline": "Not sure where to <em>start?</em>",
+    "subcopy": "Compete has challenges and hackathons running right now.",
+    "cta": "Go to Compete"
   }
 ]

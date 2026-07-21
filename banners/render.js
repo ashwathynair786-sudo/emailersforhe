@@ -325,8 +325,58 @@ const FEATURE_ART = {
 </div>`,
 };
 
+const PATH_ROWS = [
+  {
+    key: 'hiring',
+    label: 'Hiring Challenges',
+    icon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+  },
+  {
+    key: 'practice',
+    label: 'Practice',
+    icon: '<path d="M8 6L3 12l5 6"/><path d="M16 6l5 6-5 6"/>',
+  },
+  {
+    key: 'compete',
+    label: 'Compete',
+    icon: '<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h2a2 2 0 0 1 0 4h-2"/><path d="M7 5H5a2 2 0 0 0 0 4h2"/>',
+  },
+];
+
+const BUCKET_TO_PATH_KEY = { careerist: 'hiring', grinder: 'practice', builder: 'compete' };
+
+function getStartedArt(bucket) {
+  const activeKey = BUCKET_TO_PATH_KEY[bucket];
+  const rows = PATH_ROWS.map((row) => {
+    const isActive = row.key === activeKey;
+    return `
+      <div class="m-path-row${isActive ? ' active' : ''}">
+        <span class="m-path-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${row.icon}</svg></span>
+        <span class="m-path-label">${row.label}</span>
+        <span class="m-path-arrow">→</span>
+      </div>`;
+  }).join('');
+  return `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+    <div class="ord" style="margin-top:6px;">Start Here</div>
+  </div>
+  <div class="m-card m-card--nudge">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>Get Started</div>
+      <div class="m-card-label">Day 3</div>
+    </div>
+    <div class="m-card-body m-paths">${rows}
+    </div>
+  </div>
+</div>`;
+}
+
 function artFor(config) {
   if (config.art === 'founder') return FOUNDER_ART;
+  if (config.art === 'nudge:get-started') return getStartedArt(config.bucket);
   if (config.art && config.art.startsWith('milestone:')) {
     const key = config.art.split(':')[1];
     const art = MILESTONE_ART[key];
