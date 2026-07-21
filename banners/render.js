@@ -82,6 +82,27 @@ const MILESTONE_ART = {
     </div>
   </div>
 </div>`,
+  'first-hiring-challenge': `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+    <div class="ord" style="margin-top:6px;">Applied</div>
+  </div>
+  <div class="m-card">
+    <div class="m-card-head">
+      <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
+      <div class="m-card-label">Application #1</div>
+    </div>
+    <div class="m-card-body">
+      <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+      <div>
+        <div class="m-result-title">Submitted</div>
+        <div class="m-result-sub">Under review</div>
+      </div>
+    </div>
+  </div>
+</div>`,
 };
 
 function artFor(config) {

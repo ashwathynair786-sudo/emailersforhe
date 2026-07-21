@@ -160,5 +160,35 @@
     "headline": "Now make it <em>competitive.</em>",
     "subcopy": "Solo was practice. Contests are where it counts.",
     "cta": "Browse contests"
+  },
+  {
+    "id": "careerist-milestone-first-hiring-challenge",
+    "bucket": "careerist",
+    "art": "milestone:first-hiring-challenge",
+    "theme": "dark",
+    "eyebrow": "Milestone · First Application",
+    "headline": "You're in. <em>Now stand out.</em>",
+    "subcopy": "Companies check your full profile, not just your submission.",
+    "cta": "Build your resume"
+  },
+  {
+    "id": "grinder-milestone-first-hiring-challenge",
+    "bucket": "grinder",
+    "art": "milestone:first-hiring-challenge",
+    "theme": "dark",
+    "eyebrow": "Milestone · First Application",
+    "headline": "Sharpen up <em>before it closes.</em>",
+    "subcopy": "Focus your practice on what you applied for.",
+    "cta": "Go to Practice"
+  },
+  {
+    "id": "builder-milestone-first-hiring-challenge",
+    "bucket": "builder",
+    "art": "milestone:first-hiring-challenge",
+    "theme": "dark",
+    "eyebrow": "Milestone · First Application",
+    "headline": "More challenges, <em>more chances.</em>",
+    "subcopy": "Some roles never make it to a job board.",
+    "cta": "Browse hiring challenges"
   }
 ]
