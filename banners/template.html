@@ -303,6 +303,13 @@
   .m-lead-rank.gold { background: var(--cta); color: #fff; }
   .m-lead-bar { flex: 1; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.15); }
 
+  .m-nudge { position: absolute; width: 58px; height: 58px; display: flex; align-items: center; justify-content: center; z-index: 3; }
+  .m-nudge .ring { position: absolute; border-radius: 50%; border: 1.5px solid var(--lime); }
+  .m-nudge .ring1 { width: 58px; height: 58px; opacity: 0.16; }
+  .m-nudge .ring2 { width: 40px; height: 40px; opacity: 0.32; }
+  .m-nudge .core { position: absolute; width: 25px; height: 25px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 16px rgba(199,242,82,0.5); display: flex; align-items: center; justify-content: center; }
+  .m-nudge .core svg { width: 13px; height: 13px; }
+
   /* on-dark tuning for the milestone scene */
   .banner.theme-dark .m-card,
   .banner.theme-navy .m-card { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); box-shadow: none; }

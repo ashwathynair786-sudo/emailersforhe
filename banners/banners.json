@@ -370,5 +370,35 @@
     "headline": "The leaderboard is <em>being watched.</em>",
     "subcopy": "Companies running these challenges are hiring too.",
     "cta": "Browse hiring challenges"
+  },
+  {
+    "id": "profile-nudge-first-look",
+    "bucket": "feature",
+    "art": "feature:profile-nudge",
+    "theme": "dark",
+    "eyebrow": "Complete Your Profile",
+    "headline": "Profiles get looked at <em>first.</em>",
+    "subcopy": "Add experience, projects, and GitHub to strengthen yours.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "profile-nudge-activity-story",
+    "bucket": "feature",
+    "art": "feature:profile-nudge",
+    "theme": "dark",
+    "eyebrow": "Complete Your Profile",
+    "headline": "Your activity tells a <em>story.</em>",
+    "subcopy": "Give it context — add projects, experience, and GitHub.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "profile-nudge-leaderboard-clicks",
+    "bucket": "feature",
+    "art": "feature:profile-nudge",
+    "theme": "dark",
+    "eyebrow": "Complete Your Profile",
+    "headline": "People are clicking <em>through.</em>",
+    "subcopy": "Show your projects and open-source work when they land.",
+    "cta": "Complete your profile"
   }
 ]

@@ -290,6 +290,39 @@ const FEATURE_ART = {
     </div>
   </div>
 </div>`,
+  'profile-nudge': `
+<div class="m-scene">
+  <div class="m-card m-card--vibe">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></svg></span>Profile</div>
+      <div class="m-card-label">68%</div>
+    </div>
+    <div class="m-card-body m-assess">
+      <div class="m-assess-row">
+        <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></svg></div>
+        <div>
+          <div class="m-result-title">Your profile</div>
+          <div class="m-result-sub">3 sections missing</div>
+        </div>
+      </div>
+      <div>
+        <div class="m-meter"><div class="m-meter-fill" style="width:62%;"></div></div>
+        <div class="m-meter-label">62% complete</div>
+      </div>
+    </div>
+  </div>
+  <div class="m-nudge" style="top: 15px; left: 207px;">
+    <span class="ring ring1"></span>
+    <span class="ring ring2"></span>
+    <span class="core">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 12V6.5a1.5 1.5 0 0 1 3 0V11"/>
+        <path d="M12 11V4.5a1.5 1.5 0 0 1 3 0V11"/>
+        <path d="M15 11V7.5a1.5 1.5 0 0 1 3 0V13c0 3.3-2.7 6-6 6h-1a5 5 0 0 1-4.2-2.3L5 13.8a1.5 1.5 0 1 1 2.5-1.6L9 14"/>
+      </svg>
+    </span>
+  </div>
+</div>`,
 };
 
 function artFor(config) {
