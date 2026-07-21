@@ -460,5 +460,35 @@
     "headline": "One of these is <em>your start.</em>",
     "subcopy": "Hiring challenges, hackathons, or VibeCode this May.",
     "cta": "See what's live"
+  },
+  {
+    "id": "nudge3-two-minutes",
+    "bucket": "feature",
+    "art": "feature:profile-nudge",
+    "theme": "dark",
+    "eyebrow": "Day 10 · Profile CTA",
+    "headline": "Two minutes. <em>That's it.</em>",
+    "subcopy": "Complete the basics so you're ready when opportunity comes.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "nudge3-worth-doing",
+    "bucket": "feature",
+    "art": "feature:profile-nudge",
+    "theme": "dark",
+    "eyebrow": "Day 10 · Profile CTA",
+    "headline": "One small thing <em>worth doing.</em>",
+    "subcopy": "So you're already set up to be found.",
+    "cta": "Complete your profile"
+  },
+  {
+    "id": "nudge3-last-one",
+    "bucket": "feature",
+    "art": "feature:profile-nudge",
+    "theme": "dark",
+    "eyebrow": "Day 10 · Profile CTA",
+    "headline": "Last one from me. <em>Promise.</em>",
+    "subcopy": "Just the basics — then explore at your own pace.",
+    "cta": "Complete your profile"
   }
 ]
