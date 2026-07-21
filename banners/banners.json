@@ -406,7 +406,6 @@
     "bucket": "careerist",
     "art": "nudge:get-started",
     "theme": "dark",
-    "eyebrow": "Day 3 · Get Started",
     "headline": "Not sure where to <em>start?</em>",
     "subcopy": "Hiring challenges are built for developers with your background.",
     "cta": "Browse hiring challenges"
@@ -416,7 +415,6 @@
     "bucket": "grinder",
     "art": "nudge:get-started",
     "theme": "dark",
-    "eyebrow": "Day 3 · Get Started",
     "headline": "Not sure where to <em>start?</em>",
     "subcopy": "Practice is the best place — every stack, every level.",
     "cta": "Go to Practice"
@@ -426,39 +424,17 @@
     "bucket": "builder",
     "art": "nudge:get-started",
     "theme": "dark",
-    "eyebrow": "Day 3 · Get Started",
     "headline": "Not sure where to <em>start?</em>",
     "subcopy": "Compete has challenges and hackathons running right now.",
     "cta": "Go to Compete"
   },
   {
-    "id": "nudge2-two-ways-in",
+    "id": "nudge2-three-ways",
     "bucket": "feature",
-    "art": "nudge:two-paths",
+    "art": "nudge:three-ways",
     "theme": "dark",
-    "eyebrow": "Day 7 · Jobs + Hackathons",
-    "headline": "Two ways in. <em>Pick one.</em>",
-    "subcopy": "Hiring challenges or hackathons — both are live right now.",
-    "cta": "Browse hiring challenges"
-  },
-  {
-    "id": "nudge2-try-both",
-    "bucket": "feature",
-    "art": "nudge:two-paths",
-    "theme": "dark",
-    "eyebrow": "Day 7 · Jobs + Hackathons",
-    "headline": "Still deciding? <em>Try both.</em>",
-    "subcopy": "Build for a company, or build for the leaderboard.",
-    "cta": "Go to Compete"
-  },
-  {
-    "id": "nudge2-entry-point",
-    "bucket": "feature",
-    "art": "nudge:two-paths",
-    "theme": "dark",
-    "eyebrow": "Day 7 · Jobs + Hackathons",
-    "headline": "One of these is <em>your start.</em>",
-    "subcopy": "Hiring challenges, hackathons, or VibeCode this May.",
+    "headline": "Three ways in. <em>Pick one.</em>",
+    "subcopy": "Hiring challenges, hackathons, and VibeCode — all live right now.",
     "cta": "See what's live"
   },
   {
@@ -466,7 +442,6 @@
     "bucket": "feature",
     "art": "feature:profile-nudge",
     "theme": "dark",
-    "eyebrow": "Day 10 · Profile CTA",
     "headline": "Two minutes. <em>That's it.</em>",
     "subcopy": "Complete the basics so you're ready when opportunity comes.",
     "cta": "Complete your profile"
@@ -476,7 +451,6 @@
     "bucket": "feature",
     "art": "feature:profile-nudge",
     "theme": "dark",
-    "eyebrow": "Day 10 · Profile CTA",
     "headline": "One small thing <em>worth doing.</em>",
     "subcopy": "So you're already set up to be found.",
     "cta": "Complete your profile"
@@ -486,7 +460,6 @@
     "bucket": "feature",
     "art": "feature:profile-nudge",
     "theme": "dark",
-    "eyebrow": "Day 10 · Profile CTA",
     "headline": "Last one from me. <em>Promise.</em>",
     "subcopy": "Just the basics — then explore at your own pace.",
     "cta": "Complete your profile"

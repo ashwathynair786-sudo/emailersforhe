@@ -63,57 +63,129 @@ const CONFETTI = `
   <span class="bar" style="top:148px; left:296px; background:var(--lime); transform: rotate(28deg);"></span>
 </div>`;
 
-const MILESTONE_ART = {
-  'first-problem': `
+const ICONS = {
+  briefcase: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+  code: '<path d="M8 6L3 12l5 6"/><path d="M16 6l5 6-5 6"/>',
+  trophy: '<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h2a2 2 0 0 1 0 4h-2"/><path d="M7 5H5a2 2 0 0 0 0 4h2"/>',
+  sparkle: '<path d="M12 2l1.8 6.4L20 10l-6.2 1.6L12 18l-1.8-6.4L4 10l6.2-1.6z"/>',
+  check: '<path d="M5 13l4 4L19 7"/>',
+  document: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',
+  mic: '<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>',
+  calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+};
+
+function chip(icon, size = 9) {
+  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[icon]}</svg>`;
+}
+
+// Themed illustration builders, reused across milestone/feature banners that
+// call for the same kind of element (jobs, practice, resume, AI interviewer,
+// VibeCode Arena) regardless of which specific banner they're used on.
+
+function jobsHiringArt() {
+  return `
 <div class="m-scene">
   ${CONFETTI}
-  <div class="m-medal"><div class="num">1st</div><div class="ord">Solve</div></div>
-  <div class="m-card">
+  <div class="m-card m-card--vibe">
     <div class="m-card-head">
-      <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
-      <div class="m-card-label">Problem #1</div>
+      <div class="m-vibe-lang"><span class="m-vibe-chip">${chip('briefcase')}</span>Hiring</div>
+      <div class="m-card-label">Matched</div>
     </div>
-    <div class="m-card-body">
-      <div class="m-check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#020109" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div>
-        <div class="m-result-title">Accepted</div>
-        <div class="m-result-sub">Runtime beats 84%</div>
+    <div class="m-card-body m-assess">
+      <div class="m-assess-row">
+        <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${ICONS.briefcase}</svg></div>
+        <div>
+          <div class="m-result-title">3 challenges match</div>
+          <div class="m-result-sub">Based on your stack</div>
+        </div>
+      </div>
+      <div class="m-tag-row">
+        <span class="m-skill-tag">Python</span>
+        <span class="m-skill-tag">SQL</span>
+        <span class="m-skill-tag">React</span>
       </div>
     </div>
   </div>
-</div>`,
-  'first-hiring-challenge': `
+</div>`;
+}
+
+function resumeBuilderArt() {
+  return `
 <div class="m-scene">
   ${CONFETTI}
-  <div class="m-medal">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-    <div class="ord" style="margin-top:6px;">Applied</div>
-  </div>
-  <div class="m-card">
+  <div class="m-card m-card--vibe">
     <div class="m-card-head">
-      <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
-      <div class="m-card-label">Hiring Challenge #1</div>
+      <div class="m-vibe-lang"><span class="m-vibe-chip">${chip('document')}</span>Resume</div>
+      <div class="m-card-label">Ready</div>
     </div>
-    <div class="m-card-body">
-      <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
-      <div>
-        <div class="m-result-title">Submitted</div>
-        <div class="m-result-sub">Under review</div>
+    <div class="m-card-body m-code">
+      <div class="m-code-line" style="width:72%; background: rgba(255,255,255,0.55);"></div>
+      <div class="m-code-line" style="width:92%; background: rgba(255,255,255,0.3);"></div>
+      <div class="m-code-line" style="width:58%; background: rgba(255,255,255,0.3);"></div>
+      <div class="m-code-status">
+        <span class="m-code-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${ICONS.check}</svg></span>
+        Ready to share
       </div>
     </div>
   </div>
-</div>`,
-  'first-hackathon': `
+</div>`;
+}
+
+function aiInterviewerArt() {
+  const bars = [40, 70, 100, 60, 90, 50, 30];
+  const wave = bars.map((h) => `<span style="height:${h}%;"></span>`).join('');
+  return `
 <div class="m-scene">
   ${CONFETTI}
-  <div class="m-medal">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 0V3s-1 1-4 1-5-2-8 0z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-    <div class="ord" style="margin-top:6px;">Entered</div>
+  <div class="m-card m-card--vibe">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip">${chip('mic')}</span>AI Interviewer</div>
+      <div class="m-card-label">Live</div>
+    </div>
+    <div class="m-card-body m-assess">
+      <div class="m-assess-row">
+        <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS.mic}</svg></div>
+        <div>
+          <div class="m-result-title">Voice + code interview</div>
+          <div class="m-result-sub">Available 24/7</div>
+        </div>
+      </div>
+      <div class="m-wave">${wave}</div>
+    </div>
   </div>
+</div>`;
+}
+
+function vibecodeArenaArt() {
+  return `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-card m-card--vibe">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip">&lt;/&gt;</span>VibeCode</div>
+      <div class="m-card-label">Arena</div>
+    </div>
+    <div class="m-card-body m-assess">
+      <div class="m-duel">
+        <span class="m-duel-avatar">A</span>
+        <span class="m-duel-vs">VS</span>
+        <span class="m-duel-avatar">B</span>
+      </div>
+      <div class="m-lead-row"><span class="m-lead-rank gold">1</span><span class="m-lead-bar" style="width:72%;"></span></div>
+      <div class="m-lead-row"><span class="m-lead-rank">2</span><span class="m-lead-bar" style="width:56%;"></span></div>
+    </div>
+  </div>
+</div>`;
+}
+
+function hackathonHiringArt() {
+  return `
+<div class="m-scene">
+  ${CONFETTI}
   <div class="m-card m-card--code">
     <div class="m-card-head">
-      <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
-      <div class="m-card-label">hackathon.js</div>
+      <div class="m-vibe-lang"><span class="m-vibe-chip">${chip('briefcase')}</span>Hackathon</div>
+      <div class="m-card-label">Hiring Challenges</div>
     </div>
     <div class="m-card-body m-code">
       <div class="m-code-line" style="width:82%; background: rgba(255,255,255,0.55);"></div>
@@ -121,19 +193,43 @@ const MILESTONE_ART = {
       <div class="m-code-line" style="width:88%; background: rgba(255,255,255,0.3);"></div>
       <div class="m-code-line" style="width:38%; background: var(--lime);"></div>
       <div class="m-code-status">
-        <span class="m-code-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+        <span class="m-code-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${ICONS.check}</svg></span>
         Submitted
       </div>
     </div>
   </div>
-</div>`,
-  'first-mock-assessment': `
+</div>`;
+}
+
+// Milestone illustrations are keyed by milestone type, then vary the
+// specific art per bucket per the creative brief (each bucket gets an
+// illustration themed to what that persona cares about, not one
+// universal picture).
+
+const MILESTONE_ART = {
+  'first-problem': (bucket) => {
+    if (bucket === 'grinder') return GRINDER_ART;
+    if (bucket === 'careerist') return jobsHiringArt();
+    if (bucket === 'builder') return hackathonHiringArt();
+    throw new Error(`Unknown bucket for first-problem: ${bucket}`);
+  },
+  'first-hiring-challenge': (bucket) => {
+    if (bucket === 'grinder') return GRINDER_ART;
+    if (bucket === 'careerist') return resumeBuilderArt();
+    if (bucket === 'builder') return jobsHiringArt();
+    throw new Error(`Unknown bucket for first-hiring-challenge: ${bucket}`);
+  },
+  'first-hackathon': (bucket) => {
+    if (bucket === 'grinder') return GRINDER_ART;
+    if (bucket === 'careerist') return jobsHiringArt();
+    if (bucket === 'builder') return vibecodeArenaArt();
+    throw new Error(`Unknown bucket for first-hackathon: ${bucket}`);
+  },
+  'first-mock-assessment': (bucket) => {
+    if (bucket === 'careerist') return aiInterviewerArt();
+    return `
 <div class="m-scene">
   ${CONFETTI}
-  <div class="m-medal">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-    <div class="ord" style="margin-top:6px;">Attempted</div>
-  </div>
   <div class="m-card m-card--assess">
     <div class="m-card-head">
       <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
@@ -153,30 +249,14 @@ const MILESTONE_ART = {
       </div>
     </div>
   </div>
-</div>`,
-  'first-vibecode': `
-<div class="m-scene">
-  ${CONFETTI}
-  <div class="m-medal"><div class="num">1st</div><div class="ord">Vibecode</div></div>
-  <div class="m-card m-card--vibe">
-    <div class="m-card-head">
-      <div class="m-vibe-lang"><span class="m-vibe-chip">&lt;/&gt;</span>JS</div>
-      <div class="m-card-label">VibeCode Arena</div>
-    </div>
-    <div class="m-card-body m-code">
-      <div class="m-vibe-prompt">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="var(--lime)" stroke="none"><path d="M12 2l1.8 6.4L20 10l-6.2 1.6L12 18l-1.8-6.4L4 10l6.2-1.6z"/></svg>
-        "Build a login form"
-      </div>
-      <div class="m-code-line" style="width:85%; background: rgba(255,255,255,0.5);"></div>
-      <div class="m-code-line" style="width:48%; background: var(--cta);"></div>
-      <div class="m-code-status">
-        <span class="m-code-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-        Ran successfully
-      </div>
-    </div>
-  </div>
-</div>`,
+</div>`;
+  },
+  'first-vibecode': (bucket) => {
+    if (bucket === 'grinder') return GRINDER_ART;
+    if (bucket === 'careerist') return jobsHiringArt();
+    if (bucket === 'builder') return vibecodeArenaArt();
+    throw new Error(`Unknown bucket for first-vibecode: ${bucket}`);
+  },
 };
 
 const FEATURE_ART = {
@@ -209,7 +289,10 @@ const FEATURE_ART = {
   compete: `
 <div class="m-scene">
   ${CONFETTI}
-  <div class="m-medal"><div class="num" style="font-size:17px;">MAY</div><div class="ord">Vibecode</div></div>
+  <div class="m-medal">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS.calendar}</svg>
+    <div class="ord" style="margin-top:6px;">Live</div>
+  </div>
   <div class="m-card m-card--assess">
     <div class="m-card-head">
       <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8m-4-4v4M4 4h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4z"/></svg></span>Compete</div>
@@ -245,28 +328,7 @@ const FEATURE_ART = {
     </div>
   </div>
 </div>`,
-  'vibecode-promo': `
-<div class="m-scene">
-  ${CONFETTI}
-  <div class="m-card m-card--vibe">
-    <div class="m-card-head">
-      <div class="m-vibe-lang"><span class="m-vibe-chip">&lt;/&gt;</span>JS</div>
-      <div class="m-card-label">VibeCode Arena</div>
-    </div>
-    <div class="m-card-body m-code">
-      <div class="m-vibe-prompt">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="var(--lime)" stroke="none"><path d="M12 2l1.8 6.4L20 10l-6.2 1.6L12 18l-1.8-6.4L4 10l6.2-1.6z"/></svg>
-        "Build a REST API"
-      </div>
-      <div class="m-code-line" style="width:80%; background: rgba(255,255,255,0.5);"></div>
-      <div class="m-code-line" style="width:56%; background: var(--cta);"></div>
-      <div class="m-code-status">
-        <span class="m-code-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-        Ran successfully
-      </div>
-    </div>
-  </div>
-</div>`,
+  'vibecode-promo': vibecodeArenaArt(),
   'jobs-surface': `
 <div class="m-scene">
   ${CONFETTI}
@@ -360,20 +422,19 @@ function getStartedArt(bucket) {
 <div class="m-scene">
   ${CONFETTI}
   <div class="m-card m-card--nudge">
-    <div class="m-card-head">
-      <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>Get Started</div>
-      <div class="m-card-label">Day 3</div>
-    </div>
-    <div class="m-card-body m-paths">${rows}
+    <div class="m-card-body m-paths" style="padding-top:18px;">${rows}
     </div>
   </div>
 </div>`;
 }
 
-function twoPathsArt() {
-  const hiring = PATH_ROWS[0];
-  const compete = PATH_ROWS[2];
-  const rows = [hiring, compete].map((row) => `
+function threeWaysArt() {
+  const items = [
+    { label: 'Hiring Challenges', icon: ICONS.briefcase },
+    { label: 'Hackathons', icon: ICONS.trophy },
+    { label: 'VibeCode Arena', icon: ICONS.sparkle },
+  ];
+  const rows = items.map((row) => `
       <div class="m-path-row active">
         <span class="m-path-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${row.icon}</svg></span>
         <span class="m-path-label">${row.label}</span>
@@ -383,14 +444,7 @@ function twoPathsArt() {
 <div class="m-scene">
   ${CONFETTI}
   <div class="m-card m-card--nudge">
-    <div class="m-card-head">
-      <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>Explore</div>
-      <div class="m-card-label">Day 7</div>
-    </div>
-    <div class="m-card-body m-paths">${rows}
-      <div class="m-tag-row" style="margin-top:2px;">
-        <span class="m-skill-tag">VibeCode · May</span>
-      </div>
+    <div class="m-card-body m-paths" style="padding-top:18px;">${rows}
     </div>
   </div>
 </div>`;
@@ -399,12 +453,12 @@ function twoPathsArt() {
 function artFor(config) {
   if (config.art === 'founder') return FOUNDER_ART;
   if (config.art === 'nudge:get-started') return getStartedArt(config.bucket);
-  if (config.art === 'nudge:two-paths') return twoPathsArt();
+  if (config.art === 'nudge:three-ways') return threeWaysArt();
   if (config.art && config.art.startsWith('milestone:')) {
     const key = config.art.split(':')[1];
     const art = MILESTONE_ART[key];
     if (!art) throw new Error(`Unknown milestone art: ${key}`);
-    return art;
+    return art(config.bucket);
   }
   if (config.art && config.art.startsWith('feature:')) {
     const key = config.art.split(':')[1];
