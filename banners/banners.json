@@ -340,5 +340,35 @@
     "headline": "The edge that <em>separates.</em>",
     "subcopy": "Get comfortable before the challenge kicks off in May.",
     "cta": "Go to VibeCode Arena"
+  },
+  {
+    "id": "jobs-surface-live-now",
+    "bucket": "feature",
+    "art": "feature:jobs-surface",
+    "theme": "dark",
+    "eyebrow": "Jobs Surface",
+    "headline": "Challenges matching <em>you.</em>",
+    "subcopy": "New hiring challenges for your background are live now.",
+    "cta": "Browse hiring challenges"
+  },
+  {
+    "id": "jobs-surface-track-record",
+    "bucket": "feature",
+    "art": "feature:jobs-surface",
+    "theme": "dark",
+    "eyebrow": "Jobs Surface",
+    "headline": "Your work speaks <em>for you.</em>",
+    "subcopy": "Companies notice track record more than applications.",
+    "cta": "Browse hiring challenges"
+  },
+  {
+    "id": "jobs-surface-leaderboard",
+    "bucket": "feature",
+    "art": "feature:jobs-surface",
+    "theme": "dark",
+    "eyebrow": "Jobs Surface",
+    "headline": "The leaderboard is <em>being watched.</em>",
+    "subcopy": "Companies running these challenges are hiring too.",
+    "cta": "Browse hiring challenges"
   }
 ]

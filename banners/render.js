@@ -267,6 +267,33 @@ const FEATURE_ART = {
     </div>
   </div>
 </div>`,
+  'jobs-surface': `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+    <div class="ord" style="margin-top:6px;">Hiring</div>
+  </div>
+  <div class="m-card m-card--vibe">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>Profile</div>
+      <div class="m-card-label">Visible</div>
+    </div>
+    <div class="m-card-body m-assess">
+      <div class="m-assess-row">
+        <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div>
+          <div class="m-result-title">Companies are watching</div>
+          <div class="m-result-sub">Hiring challenges match your profile</div>
+        </div>
+      </div>
+      <div class="m-tag-row">
+        <span class="m-skill-tag">Active</span>
+        <span class="m-skill-tag">42 Solved</span>
+      </div>
+    </div>
+  </div>
+</div>`,
 };
 
 function artFor(config) {
