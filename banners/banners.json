@@ -280,5 +280,35 @@
     "headline": "See where you <em>landed.</em>",
     "subcopy": "Check the Leaderboard — top spots move fast.",
     "cta": "Go to Leaderboard"
+  },
+  {
+    "id": "primary-feature-hiring-challenges",
+    "bucket": "feature",
+    "art": "feature:hiring-challenges",
+    "theme": "dark",
+    "eyebrow": "Hiring Challenges",
+    "headline": "Your stack is in <em>demand.</em>",
+    "subcopy": "Companies are running hiring challenges for developers like you.",
+    "cta": "Browse hiring challenges"
+  },
+  {
+    "id": "primary-feature-practice",
+    "bucket": "feature",
+    "art": "feature:practice",
+    "theme": "dark",
+    "eyebrow": "Practice",
+    "headline": "Where developers <em>get better.</em>",
+    "subcopy": "Every stack, every difficulty — with editorials when you're stuck.",
+    "cta": "Go to Practice"
+  },
+  {
+    "id": "primary-feature-compete",
+    "bucket": "feature",
+    "art": "feature:compete",
+    "theme": "dark",
+    "eyebrow": "Compete",
+    "headline": "A month-long challenge is <em>coming.</em>",
+    "subcopy": "Plus contests live now — VibeCode's month-long challenge starts in May.",
+    "cta": "Go to Compete"
   }
 ]

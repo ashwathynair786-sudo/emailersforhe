@@ -179,12 +179,63 @@ const MILESTONE_ART = {
 </div>`,
 };
 
+const FEATURE_ART = {
+  'hiring-challenges': `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal"><div class="num">12</div><div class="ord">Live</div></div>
+  <div class="m-card m-card--vibe">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>Hiring</div>
+      <div class="m-card-label">Matched</div>
+    </div>
+    <div class="m-card-body m-assess">
+      <div class="m-assess-row">
+        <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <div class="m-result-title">3 challenges match</div>
+          <div class="m-result-sub">Based on your stack</div>
+        </div>
+      </div>
+      <div class="m-tag-row">
+        <span class="m-skill-tag">Python</span>
+        <span class="m-skill-tag">SQL</span>
+        <span class="m-skill-tag">React</span>
+      </div>
+    </div>
+  </div>
+</div>`,
+  practice: GRINDER_ART,
+  compete: `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal"><div class="num" style="font-size:17px;">MAY</div><div class="ord">Vibecode</div></div>
+  <div class="m-card m-card--assess">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8m-4-4v4M4 4h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4z"/></svg></span>Compete</div>
+      <div class="m-card-label">Live now</div>
+    </div>
+    <div class="m-card-body m-assess">
+      <div class="m-lead-row"><span class="m-lead-rank gold">1</span><span class="m-lead-bar" style="width:72%;"></span></div>
+      <div class="m-lead-row"><span class="m-lead-rank">2</span><span class="m-lead-bar" style="width:56%;"></span></div>
+      <div class="m-lead-row"><span class="m-lead-rank">3</span><span class="m-lead-bar" style="width:44%;"></span></div>
+    </div>
+  </div>
+</div>`,
+};
+
 function artFor(config) {
   if (config.art === 'founder') return FOUNDER_ART;
   if (config.art && config.art.startsWith('milestone:')) {
     const key = config.art.split(':')[1];
     const art = MILESTONE_ART[key];
     if (!art) throw new Error(`Unknown milestone art: ${key}`);
+    return art;
+  }
+  if (config.art && config.art.startsWith('feature:')) {
+    const key = config.art.split(':')[1];
+    const art = FEATURE_ART[key];
+    if (!art) throw new Error(`Unknown feature art: ${key}`);
     return art;
   }
   const bucket = config.bucket;
