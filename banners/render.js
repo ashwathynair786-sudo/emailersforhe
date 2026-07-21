@@ -154,6 +154,32 @@ const MILESTONE_ART = {
     </div>
   </div>
 </div>`,
+  'first-vibecode': `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" stroke="none"><path d="M12 2l1.8 6.4L20 10l-6.2 1.6L12 18l-1.8-6.4L4 10l6.2-1.6z"/></svg>
+    <div class="ord" style="margin-top:6px;">Vibe #1</div>
+  </div>
+  <div class="m-card m-card--code">
+    <div class="m-card-head">
+      <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
+      <div class="m-card-label">vibe-arena.ai</div>
+    </div>
+    <div class="m-card-body m-code">
+      <div class="m-vibe-prompt">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="var(--lime)" stroke="none"><path d="M12 2l1.8 6.4L20 10l-6.2 1.6L12 18l-1.8-6.4L4 10l6.2-1.6z"/></svg>
+        "Build a login form"
+      </div>
+      <div class="m-code-line" style="width:85%; background: rgba(255,255,255,0.5);"></div>
+      <div class="m-code-line" style="width:48%; background: var(--cta);"></div>
+      <div class="m-code-status">
+        <span class="m-code-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+        Ran successfully
+      </div>
+    </div>
+  </div>
+</div>`,
 };
 
 function artFor(config) {

@@ -250,5 +250,35 @@
     "headline": "See your score <em>move.</em>",
     "subcopy": "Check the Leaderboard to see where you stand.",
     "cta": "Try another assessment"
+  },
+  {
+    "id": "careerist-milestone-first-vibecode",
+    "bucket": "careerist",
+    "art": "milestone:first-vibecode",
+    "theme": "dark",
+    "eyebrow": "First VibeCode",
+    "headline": "Your AI skills, <em>on record.</em>",
+    "subcopy": "Companies are watching who builds well with LLMs.",
+    "cta": "Browse Jobs"
+  },
+  {
+    "id": "grinder-milestone-first-vibecode",
+    "bucket": "grinder",
+    "art": "milestone:first-vibecode",
+    "theme": "dark",
+    "eyebrow": "First VibeCode",
+    "headline": "A different kind of <em>muscle.</em>",
+    "subcopy": "Sharpen the fundamentals underneath in Practice.",
+    "cta": "Go to Practice"
+  },
+  {
+    "id": "builder-milestone-first-vibecode",
+    "bucket": "builder",
+    "art": "milestone:first-vibecode",
+    "theme": "dark",
+    "eyebrow": "First VibeCode",
+    "headline": "See where you <em>landed.</em>",
+    "subcopy": "Check the Leaderboard — top spots move fast.",
+    "cta": "Go to Leaderboard"
   }
 ]
