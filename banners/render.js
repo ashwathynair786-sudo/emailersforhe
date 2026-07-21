@@ -311,15 +311,11 @@ const FEATURE_ART = {
       </div>
     </div>
   </div>
-  <div class="m-nudge" style="top: 15px; left: 207px;">
+  <div class="m-nudge" style="top: 171px; left: 207px;">
     <span class="ring ring1"></span>
     <span class="ring ring2"></span>
     <span class="core">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 12V6.5a1.5 1.5 0 0 1 3 0V11"/>
-        <path d="M12 11V4.5a1.5 1.5 0 0 1 3 0V11"/>
-        <path d="M15 11V7.5a1.5 1.5 0 0 1 3 0V13c0 3.3-2.7 6-6 6h-1a5 5 0 0 1-4.2-2.3L5 13.8a1.5 1.5 0 1 1 2.5-1.6L9 14"/>
-      </svg>
+      <img src="../assets/icons/nudge-bell.png" alt="">
     </span>
   </div>
 </div>`,
