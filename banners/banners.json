@@ -220,5 +220,35 @@
     "headline": "Build faster. <em>Think clearer.</em>",
     "subcopy": "Sharpen your edge in VibeCode Arena before the deadline.",
     "cta": "Go to VibeCode Arena"
+  },
+  {
+    "id": "careerist-milestone-first-mock-assessment",
+    "bucket": "careerist",
+    "art": "milestone:first-mock-assessment",
+    "theme": "dark",
+    "eyebrow": "First Mock Assessment",
+    "headline": "Get familiar. <em>Get ready.</em>",
+    "subcopy": "The AI Interviewer is the natural next step.",
+    "cta": "Try AI Interviewer"
+  },
+  {
+    "id": "grinder-milestone-first-mock-assessment",
+    "bucket": "grinder",
+    "art": "milestone:first-mock-assessment",
+    "theme": "dark",
+    "eyebrow": "First Mock Assessment",
+    "headline": "Gaps are <em>useful data.</em>",
+    "subcopy": "Work on what felt least confident, then come back.",
+    "cta": "Go to Practice"
+  },
+  {
+    "id": "builder-milestone-first-mock-assessment",
+    "bucket": "builder",
+    "art": "milestone:first-mock-assessment",
+    "theme": "dark",
+    "eyebrow": "First Mock Assessment",
+    "headline": "See your score <em>move.</em>",
+    "subcopy": "Check the Leaderboard to see where you stand.",
+    "cta": "Try another assessment"
   }
 ]

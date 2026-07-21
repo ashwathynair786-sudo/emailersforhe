@@ -127,6 +127,33 @@ const MILESTONE_ART = {
     </div>
   </div>
 </div>`,
+  'first-mock-assessment': `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+    <div class="ord" style="margin-top:6px;">Attempted</div>
+  </div>
+  <div class="m-card m-card--assess">
+    <div class="m-card-head">
+      <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
+      <div class="m-card-label">Mock Assessment #1</div>
+    </div>
+    <div class="m-card-body m-assess">
+      <div class="m-assess-row">
+        <div class="m-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <div class="m-result-title">Completed</div>
+          <div class="m-result-sub">18 min · 12 questions</div>
+        </div>
+      </div>
+      <div>
+        <div class="m-meter"><div class="m-meter-fill" style="width:74%;"></div></div>
+        <div class="m-meter-label">Score 74%</div>
+      </div>
+    </div>
+  </div>
+</div>`,
 };
 
 function artFor(config) {
