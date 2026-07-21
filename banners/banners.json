@@ -430,5 +430,35 @@
     "headline": "Not sure where to <em>start?</em>",
     "subcopy": "Compete has challenges and hackathons running right now.",
     "cta": "Go to Compete"
+  },
+  {
+    "id": "nudge2-two-ways-in",
+    "bucket": "feature",
+    "art": "nudge:two-paths",
+    "theme": "dark",
+    "eyebrow": "Day 7 · Jobs + Hackathons",
+    "headline": "Two ways in. <em>Pick one.</em>",
+    "subcopy": "Hiring challenges or hackathons — both are live right now.",
+    "cta": "Browse hiring challenges"
+  },
+  {
+    "id": "nudge2-try-both",
+    "bucket": "feature",
+    "art": "nudge:two-paths",
+    "theme": "dark",
+    "eyebrow": "Day 7 · Jobs + Hackathons",
+    "headline": "Still deciding? <em>Try both.</em>",
+    "subcopy": "Build for a company, or build for the leaderboard.",
+    "cta": "Go to Compete"
+  },
+  {
+    "id": "nudge2-entry-point",
+    "bucket": "feature",
+    "art": "nudge:two-paths",
+    "theme": "dark",
+    "eyebrow": "Day 7 · Jobs + Hackathons",
+    "headline": "One of these is <em>your start.</em>",
+    "subcopy": "Hiring challenges, hackathons, or VibeCode this May.",
+    "cta": "See what's live"
   }
 ]

@@ -370,9 +370,36 @@ function getStartedArt(bucket) {
 </div>`;
 }
 
+function twoPathsArt() {
+  const hiring = PATH_ROWS[0];
+  const compete = PATH_ROWS[2];
+  const rows = [hiring, compete].map((row) => `
+      <div class="m-path-row active">
+        <span class="m-path-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${row.icon}</svg></span>
+        <span class="m-path-label">${row.label}</span>
+        <span class="m-path-arrow">→</span>
+      </div>`).join('');
+  return `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-card m-card--nudge">
+    <div class="m-card-head">
+      <div class="m-vibe-lang"><span class="m-vibe-chip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>Explore</div>
+      <div class="m-card-label">Day 7</div>
+    </div>
+    <div class="m-card-body m-paths">${rows}
+      <div class="m-tag-row" style="margin-top:2px;">
+        <span class="m-skill-tag">VibeCode · May</span>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
 function artFor(config) {
   if (config.art === 'founder') return FOUNDER_ART;
   if (config.art === 'nudge:get-started') return getStartedArt(config.bucket);
+  if (config.art === 'nudge:two-paths') return twoPathsArt();
   if (config.art && config.art.startsWith('milestone:')) {
     const key = config.art.split(':')[1];
     const art = MILESTONE_ART[key];
