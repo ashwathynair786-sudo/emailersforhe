@@ -77,6 +77,9 @@ function render(config) {
   const eyebrowBlock = config.eyebrow
     ? `<div class="eyebrow"><span class="bracket">[</span>${config.eyebrow.toUpperCase()}<span class="bracket">]</span></div>`
     : '';
+  const ctaBlock = config.cta
+    ? `<div class="cta">${config.cta} →</div>`
+    : '';
   const isOnDark = config.theme === 'dark' || config.theme === 'navy';
   const themeClass = config.theme === 'dark' ? 'theme-dark' : config.theme === 'navy' ? 'theme-navy' : '';
   html = html
@@ -87,7 +90,7 @@ function render(config) {
     .replace('__GREETING__', greetingHtml)
     .replace('__HEADLINE__', config.headline)
     .replace('__SUBCOPY__', subcopyHtml)
-    .replace('__CTA__', config.cta)
+    .replace('__CTA_BLOCK__', ctaBlock)
     .replace('__ART__', artFor(config));
   return html;
 }

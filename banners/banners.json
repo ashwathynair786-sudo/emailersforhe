@@ -30,7 +30,7 @@
     "greeting": "Welcome",
     "headline": "Let's build your <em>first proof.</em>",
     "subcopy": "Turn your projects and skills into a resume recruiters actually notice.",
-    "cta": "Build your resume"
+    "theme": "dark"
   },
   {
     "id": "careerist-welcome-0-1yr",
@@ -39,7 +39,7 @@
     "greeting": "Welcome",
     "headline": "Build your presence <em>early.</em>",
     "subcopy": "Turn your profile into a resume that gets you noticed sooner.",
-    "cta": "Build your resume"
+    "theme": "dark"
   },
   {
     "id": "careerist-welcome-0-3yr",
@@ -48,7 +48,7 @@
     "greeting": "Welcome",
     "headline": "Let the right people <em>find you.</em>",
     "subcopy": "Turn your experience into a resume built for visibility.",
-    "cta": "Build your resume"
+    "theme": "dark"
   },
   {
     "id": "careerist-welcome-3-10yr",
@@ -57,7 +57,7 @@
     "greeting": "Welcome",
     "headline": "Visibility beats <em>applying.</em>",
     "subcopy": "Turn your track record into a resume recruiters can't miss.",
-    "cta": "Build your resume"
+    "theme": "dark"
   },
   {
     "id": "grinder-welcome-student",
@@ -66,8 +66,7 @@
     "theme": "dark",
     "greeting": "Welcome",
     "headline": "Start sharpening <em>early.</em>",
-    "subcopy": "The fundamentals you build now compound in ways you can't see yet.",
-    "cta": "Complete your profile"
+    "subcopy": "The fundamentals you build now compound in ways you can't see yet."
   },
   {
     "id": "grinder-welcome-0-1yr",
@@ -76,8 +75,7 @@
     "theme": "dark",
     "greeting": "Welcome",
     "headline": "The fundamentals <em>compound.</em>",
-    "subcopy": "Starting early is one of the best decisions you can make.",
-    "cta": "Complete your profile"
+    "subcopy": "Starting early is one of the best decisions you can make."
   },
   {
     "id": "grinder-welcome-0-3yr",
@@ -86,8 +84,7 @@
     "theme": "dark",
     "greeting": "Welcome",
     "headline": "Deliberate practice <em>wins.</em>",
-    "subcopy": "It's what separates good developers from great ones.",
-    "cta": "Complete your profile"
+    "subcopy": "It's what separates good developers from great ones."
   },
   {
     "id": "grinder-welcome-3-10yr",
@@ -96,8 +93,7 @@
     "theme": "dark",
     "greeting": "Welcome",
     "headline": "The best never <em>stop.</em>",
-    "subcopy": "At your level, the challenges get harder and more satisfying to crack.",
-    "cta": "Complete your profile"
+    "subcopy": "At your level, the challenges get harder and more satisfying to crack."
   },
   {
     "id": "builder-welcome-student",
@@ -106,8 +102,7 @@
     "greeting": "Welcome",
     "headline": "Start your edge <em>early.</em>",
     "subcopy": "Hackathons build your portfolio and get you noticed by companies who recruit from here.",
-    "cta": "Complete your profile",
-    "theme": "navy"
+    "theme": "dark"
   },
   {
     "id": "builder-welcome-0-1yr",
@@ -116,8 +111,7 @@
     "greeting": "Welcome",
     "headline": "Build fast. Learn <em>faster.</em>",
     "subcopy": "48 hours of building something real teaches more than weeks of tutorials.",
-    "cta": "Complete your profile",
-    "theme": "navy"
+    "theme": "dark"
   },
   {
     "id": "builder-welcome-0-3yr",
@@ -126,8 +120,7 @@
     "greeting": "Welcome",
     "headline": "Time to <em>prove it.</em>",
     "subcopy": "You've got enough experience to be dangerous in a hackathon.",
-    "cta": "Complete your profile",
-    "theme": "navy"
+    "theme": "dark"
   },
   {
     "id": "builder-welcome-3-10yr",
@@ -136,7 +129,6 @@
     "greeting": "Welcome",
     "headline": "Solve what <em>no one has.</em>",
     "subcopy": "At your level, the interesting problems are the ones nobody's solved yet.",
-    "cta": "Complete your profile",
-    "theme": "navy"
+    "theme": "dark"
   }
 ]
