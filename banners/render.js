@@ -359,7 +359,7 @@ function getStartedArt(bucket) {
   return `
 <div class="m-scene">
   ${CONFETTI}
-  <div class="m-medal">
+  <div class="m-medal" style="top: 172px; left: 202px; right: auto;">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
     <div class="ord" style="margin-top:6px;">Start Here</div>
   </div>
