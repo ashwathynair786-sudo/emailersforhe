@@ -190,5 +190,35 @@
     "headline": "More challenges, <em>more chances.</em>",
     "subcopy": "Some roles never make it to a job board.",
     "cta": "Browse hiring challenges"
+  },
+  {
+    "id": "careerist-milestone-first-hackathon",
+    "bucket": "careerist",
+    "art": "milestone:first-hackathon",
+    "theme": "dark",
+    "eyebrow": "First Hackathon",
+    "headline": "A build can open <em>doors.</em>",
+    "subcopy": "Companies running hackathons here are hiring too.",
+    "cta": "Browse hiring challenges"
+  },
+  {
+    "id": "grinder-milestone-first-hackathon",
+    "bucket": "grinder",
+    "art": "milestone:first-hackathon",
+    "theme": "dark",
+    "eyebrow": "First Hackathon",
+    "headline": "A different kind of <em>pressure.</em>",
+    "subcopy": "Want to prep before the deadline? Practice is the place.",
+    "cta": "Go to Practice"
+  },
+  {
+    "id": "builder-milestone-first-hackathon",
+    "bucket": "builder",
+    "art": "milestone:first-hackathon",
+    "theme": "dark",
+    "eyebrow": "First Hackathon",
+    "headline": "Build faster. <em>Think clearer.</em>",
+    "subcopy": "Sharpen your edge in VibeCode Arena before the deadline.",
+    "cta": "Go to VibeCode Arena"
   }
 ]

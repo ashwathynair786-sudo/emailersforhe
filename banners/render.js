@@ -103,6 +103,30 @@ const MILESTONE_ART = {
     </div>
   </div>
 </div>`,
+  'first-hackathon': `
+<div class="m-scene">
+  ${CONFETTI}
+  <div class="m-medal">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 0V3s-1 1-4 1-5-2-8 0z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+    <div class="ord" style="margin-top:6px;">Entered</div>
+  </div>
+  <div class="m-card m-card--code">
+    <div class="m-card-head">
+      <div class="m-dots"><span class="m-dot red"></span><span class="m-dot amber"></span><span class="m-dot green"></span></div>
+      <div class="m-card-label">hackathon.js</div>
+    </div>
+    <div class="m-card-body m-code">
+      <div class="m-code-line" style="width:82%; background: rgba(255,255,255,0.55);"></div>
+      <div class="m-code-line" style="width:52%; background: var(--cta);"></div>
+      <div class="m-code-line" style="width:88%; background: rgba(255,255,255,0.3);"></div>
+      <div class="m-code-line" style="width:38%; background: var(--lime);"></div>
+      <div class="m-code-status">
+        <span class="m-code-check"><svg viewBox="0 0 24 24" fill="none" stroke="#020109" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+        Submitted
+      </div>
+    </div>
+  </div>
+</div>`,
 };
 
 function artFor(config) {
